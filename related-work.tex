@@ -22,7 +22,7 @@
 % LLM based solutions to Automated Program Repairs (APR).
 % The SLR follows the methdology proposed by Kitchenham et al.
 % \citep{slrguidese, segress}, used in many SE-related SLRs
-% \citep{dl4defence, ml4se, llm4se2}. Following the guidelines provided by
+% \citep{dl4defence, ml4se, llm4se, llm4se2}. Following the guidelines provided by
 % Kitchenham et al., our methodology include three main steps:
 % planning the review (i.e. Section~\ref{sec:search}), conducting the review
 % (i.e. Section~\ref{sec:selection}), and analyzing the basic review results 
@@ -30,7 +30,7 @@
 \par 我们进行了一项系统文献综述（SLR），涵盖了2021年1月至2026年2月期间发表的文章，
 重点关注基于大型语言模型（LLM）的自动程序修复（APR）解决方案的使用情况。
 这项SLR遵循了Kitchenham等人提出的方法论\citep{slrguidese, segress}，该方法已被许
-多与软件工程相关的SLR使用\citep{dl4defence, ml4se, llm4se2}。
+多与软件工程相关的SLR使用\citep{dl4defence, ml4se, llm4se, llm4se2}。
 根据Kitchenham等人提供的指南，我们的方法论包括三个主要步骤：
 规划审查（即第\ref{sec:search}节），进行审查（即第\ref{sec:selection}节），以及
 分析基本审查结果（即第\ref{sec:analysis}节）。
@@ -160,7 +160,8 @@
 % search. Snowballing search refers to using the reference list
 % of an article or the citations to the article to identify additional
 % articles. As a result, we obtained an additional TODO papers.
-\paragraph{滚雪球式搜索} 为了识别任何可能相关的主要研究，我们进行了滚雪球式搜索。
+\paragraph{滚雪球式搜索\citep{llm4se2}} 为了识别任何可能相关的主要研究，
+我们进行了滚雪球式搜索。
 滚雪球式搜索是指使用文章的参考文献列表或对该文章的引用来识别其他文章。结果，
 我们获得了额外的TODO篇论文。
 
@@ -208,6 +209,11 @@
 % way and potentially affect the end-use, 
 % especially when the bugs are fixed by developers who does not have 
 % enough knowledge of the repository \citep{incorrectfix}.
+% Moreover, the code generated LLM may contain bugs or vulnerabilities.
+% For instance, Pearce et al. prompt Github Copilot\citep{copilot} to 
+% generate code in scenarios relevant to high-risk cybersecurity 
+% weaknesses, and found that 40\% of 1689 programs are vulnerable
+% \citep{copilotsecurity}.
 % This RQ hence aims to uncover common patch verification techniques, 
 % including formal verification and enhanced unit testing, and their 
 % effectiveness.
@@ -215,6 +221,9 @@
 \paragraph{RQ3:} 研究人员如何验证代码LLMs生成的补丁的正确性？
 修复错误可能以微妙的方式引入新的错误，并可能影响最终用户，尤
 其是当错误由对代码库没有足够了解的开发人员修复时\citep{incorrectfix}。
+另外, 大语言模型生成的代码可能有缺陷和安全漏洞; 例如, Pearce et al.
+提示Copilot\citep{copilot}在网络安全非常敏感的场景下生成代码, 发现
+1689个生成的程序中有40\%有安全漏洞\citep{copilotsecurity}。 
 因此，这个研究问题旨在揭示常见的补丁验证技术，包括形式化
 验证和增强单元测试，以及它们的有效性。
 

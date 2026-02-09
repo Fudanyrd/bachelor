@@ -1,6 +1,18 @@
 @comment{
 SLRs, reviews, surveys, empirical studies, etc. on software engineering topics.
 }
+@article{llm4se,
+  title={Towards an understanding of large language models in software engineering tasks},
+  author={Zheng, Zibin and Ning, Kaiwen and Zhong, Qingyuan and Chen, Jiachi and Chen, Wenqing and Guo, Lianghong and Wang, Weicheng and Wang, Yanlin},
+  journal={Empirical Software Engineering},
+  volume={30},
+  number={2},
+  pages={50},
+  year={2025},
+  url={https://arxiv.org/abs/2308.11396},
+  abstract={Large Language Models (LLMs) have drawn widespread attention and research due to their astounding performance in text generation and reasoning tasks. Derivative products, like ChatGPT, have been extensively deployed and highly sought after. Meanwhile, the evaluation and optimization of LLMs in software engineering tasks, such as code generation, have become a research focus. However, there is still a lack of systematic research on applying and evaluating LLMs in software engineering. Therefore, this paper comprehensively investigate and collate the research and products combining LLMs with software engineering, aiming to answer two questions: (1) What are the current integrations of LLMs with software engineering? (2) Can LLMs effectively handle software engineering tasks? To find the answers, we have collected related literature as extensively as possible from seven mainstream databases and selected 123 timely papers published starting from 2022 for analysis. We have categorized these papers in detail and reviewed the current research status of LLMs from the perspective of seven major software engineering tasks, hoping this will help researchers better grasp the research trends and address the issues when applying LLMs. Meanwhile, we have also organized and presented papers with evaluation content to reveal the performance and effectiveness of LLMs in various software engineering tasks, guiding researchers and developers to optimize.},
+  publisher={Springer}
+}
 @article{llm4se2,
   title={Large language models for software engineering: A systematic literature review},
   author={Hou, Xinyi and Zhao, Yanjie and Liu, Yue and Yang, Zhou and Wang, Kailong and Li, Li and Luo, Xiapu and Lo, David and Grundy, John and Wang, Haoyu},
@@ -96,4 +108,50 @@ The system operates through a structured four-step process: (1) Code Generation,
   keywords = {bug fixing, human factor, incorrect fixes, software bugs, testing},
   location = {Szeged, Hungary},
   series = {ESEC/FSE '11}
+}
+
+@article{copilotsecurity,
+  title={Asleep at the keyboard? assessing the security of github copilot's code contributions},
+  author={Pearce, Hammond and Ahmad, Baleegh and Tan, Benjamin and Dolan-Gavitt, Brendan and Karri, Ramesh},
+  journal={Communications of the ACM},
+  volume={68},
+  number={2},
+  pages={96--105},
+  year={2025},
+  url={https://arxiv.org/abs/2108.09293},
+  publisher={ACM New York, NY, USA}
+}
+
+@comment{
+Empirical studies on practitioner's debugging behavior, expectations, etc.
+}
+
+@inproceedings{expectationonfl,
+  title={Practitioners' expectations on automated fault localization},
+  author={Kochhar, Pavneet Singh and Xia, Xin and Lo, David and Li, Shanping},
+  booktitle={Proceedings of the 25th international symposium on software testing and analysis},
+  pages={165--176},
+  url={https://dl.acm.org/doi/pdf/10.1145/2931037.2931051},
+  abstract={Software engineering practitioners often spend significant amount of time and effort to debug. To help practitioners perform this crucial task, hundreds of papers have proposed various fault localization techniques. Fault localization helps practitioners to find the location of a defect given its symptoms (e.g., program failures). These localization techniques have pinpointed the locations of bugs of various systems of diverse sizes, with varying degrees of success, and for various usage scenarios. Unfortunately, it is unclear whether practitioners appreciate this line of research. To fill this gap, we performed an empirical study by surveying 386 practitioners from more than 30 countries across 5 continents about their expectations of research in fault localization. In particular, we investigated a number of factors that impact practitioners' willingness to adopt a fault localization technique. We then compared what practitioners need and the current state-of-research by performing a literature review of papers on fault localization techniques published in ICSE, FSE, ESEC-FSE, ISSTA, TSE, and TOSEM in the last 5 years (2011-2015). From this comparison, we highlight the directions where researchers need to put effort to develop fault localization techniques that matter to practitioners.},
+  year={2016}
+}
+@inproceedings{autodebughelpful,
+  title={Are automated debugging techniques actually helping programmers?},
+  author={Parnin, Chris and Orso, Alessandro},
+  booktitle={Proceedings of the 2011 international symposium on software testing and analysis},
+  pages={199--209},
+  url={https://dl.acm.org/doi/pdf/10.1145/2001420.2001445},
+  abstract={Debugging is notoriously difficult and extremely time consuming. Researchers have therefore invested a considerable amount of effort in developing automated techniques and tools for supporting various debugging tasks. Although potentially useful, most of these techniques have yet to demonstrate their practical effectiveness. One common limitation of existing approaches, for instance, is their reliance on a set of strong assumptions on how developers behave when debugging (e.g., the fact that examining a faulty statement in isolation is enough for a developer to understand and fix the corresponding bug). In more general terms, most existing techniques just focus on selecting subsets of potentially faulty statements and ranking them according to some criterion. By doing so, they ignore the fact that understanding the root cause of a failure typically involves complex activities, such as navigating program dependencies and rerunning the program with different inputs. The overall goal of this research is to investigate how developers use and benefit from automated debugging tools through a set of human studies. As a first step in this direction, we perform a preliminary study on a set of developers by providing them with an automated debugging tool and two tasks to be performed with and without the tool. Our results provide initial evidence that several assumptions made by automated debugging techniques do not hold in practice. Through an analysis of the results, we also provide insights on potential directions for future work in the area of automated debugging.},
+  year={2011}
+}
+
+@inproceedings{debugbench,
+  title={Where is the bug and how is it fixed? an experiment with practitioners},
+  author={B{\"o}hme, Marcel and Soremekun, Ezekiel O and Chattopadhyay, Sudipta and Ugherughe, Emamurho and Zeller, Andreas},
+  booktitle={Proceedings of the 2017 11th joint meeting on foundations of software engineering},
+  pages={117--128},
+  url={https://dl.acm.org/doi/pdf/10.1145/3106237.3106255},
+  abstract={Research has produced many approaches to automatically locate, explain, and repair software bugs. But do these approaches relate to the way practitioners actually locate, understand, and fix bugs? To help answer this question, we have collected a dataset named DBGBENCH --- the correct fault locations, bug diagnoses, and software patches of 27 real errors in open-source C projects that were consolidated from hundreds of debugging sessions of professional software engineers. Moreover, we shed light on the entire debugging process, from constructing a hypothesis to submitting a patch, and how debugging time, difficulty, and strategies vary across practitioners and types of errors. Most notably, DBGBENCH can serve as reality check for novel automated debugging and repair techniques.},
+  keywords={software debugging, software testing},
+  year={2017}
 }

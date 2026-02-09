@@ -1,0 +1,96 @@
+@comment{
+benchmarks and datasets for Automated Program Repair
+}
+
+@inproceedings{defects4j,
+  title={Defects4J: A database of existing faults to enable controlled testing studies for Java programs},
+  author={Just, Ren{\'e} and Jalali, Darioush and Ernst, Michael D},
+  booktitle={Proceedings of the 2014 International Symposium on Software Testing and Analysis},
+  pages={437--440},
+  url={https://dl.acm.org/doi/pdf/10.1145/2610384.2628055},
+  keywords={Software Engineering, Testing and Debugging},
+  year={2014}
+}
+
+@article{swebench,
+  title={Swe-bench: Can language models resolve real-world github issues?},
+  author={Jimenez, Carlos E and Yang, John and Wettig, Alexander and Yao, Shunyu and Pei, Kexin and Press, Ofir and Narasimhan, Karthik},
+  journal={arXiv preprint arXiv:2310.06770},
+  url={https://arxiv.org/abs/2310.06770},
+  abstract={Language models have outpaced our ability to evaluate them effectively, but for their future development it is essential to study the frontier of their capabilities. We find real-world software engineering to be a rich, sustainable, and challenging testbed for evaluating the next generation of language models. To this end, we introduce SWE-bench, an evaluation framework consisting of 2,294 software engineering problems drawn from real GitHub issues and corresponding pull requests across 12 popular Python repositories. Given a codebase along with a description of an issue to be resolved, a language model is tasked with editing the codebase to address the issue. Resolving issues in SWE-bench frequently requires understanding and coordinating changes across multiple functions, classes, and even files simultaneously, calling for models to interact with execution environments, process extremely long contexts and perform complex reasoning that goes far beyond traditional code generation tasks. Our evaluations show that both state-of-the-art proprietary models and our fine-tuned model SWE-Llama can resolve only the simplest issues. The best-performing model, Claude 2, is able to solve a mere 1.96% of the issues. Advances on SWE-bench represent steps towards LMs that are more practical, intelligent, and autonomous.},
+  year={2023}
+}
+
+@misc{codeagentbench,
+  title={CodeAgent: Enhancing Code Generation with Tool-Integrated Agent Systems for Real-World Repo-level Coding Challenges}, 
+  author={Kechi Zhang and Jia Li and Ge Li and Xianjie Shi and Zhi Jin},
+  year={2024},
+  eprint={2401.07339},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE},
+  url={https://arxiv.org/abs/2401.07339},
+  abstract={Large Language Models (LLMs) have shown promise in automated code generation but typically excel only in simpler tasks such as generating standalone code units. Real-world software development, however, often involves complex code repositories (named repo) with complex dependencies and extensive documentation. To fill this gap, our research pivots towards evaluating LLMs in a more realistic setting -- real-world repo-level code generation. We introduce CodeAgentBench, a manually curated benchmark for repo-level code generation. This benchmark comprises five high-quality Python projects, encompassing a total of 101 samples. We assess nine leading LLMs on repo-level tasks and observe a decline in their performance. To tackle this, we present CodeAgent, a novel LLM-based agent framework that employs external tools for effective repo-level code generation. CodeAgent integrates five programming tools, enabling interaction with software artifacts for information retrieval, code symbol navigation, and code testing. We implement four agent strategies to optimize these tools' usage. Our experiments on CodeAgentBench show that CodeAgent enhances LLM performance significantly, with improvements ranging from 18.1\% to 250\%. Further tests on the HumanEval benchmark confirm CodeAgent's adaptability and efficacy across various code generation tasks. Notably, CodeAgent outperforms commercial products like Github Copilot, showcasing superior accuracy and efficiency. These results demonstrate CodeAgent's robust capabilities in code generation, highlighting its potential for real-world repo-level coding challenges.},
+}
+
+@article{manybugs,
+  author={Le Goues, Claire and Holtschulte, Neal and Smith, Edward K. and Brun, Yuriy and Devanbu, Premkumar and Forrest, Stephanie and Weimer, Westley},
+  journal={IEEE Transactions on Software Engineering}, 
+  title={The ManyBugs and IntroClass Benchmarks for Automated Repair of C Programs}, 
+  year={2015},
+  abstract={The field of automated software repair lacks a set of common benchmark problems. Although benchmark sets are used widely throughout computer science, existing benchmarks are not easily adapted to the problem of automatic defect repair, which has several special requirements. Most important of these is the need for benchmark programs with reproducible, important defects and a deterministic method for assessing if those defects have been repaired. This article details the need for a new set of benchmarks, outlines requirements, and then presents two datasets, ManyBugs and IntroClass, consisting between them of 1,183 defects in 15 C programs. Each dataset is designed to support the comparative evaluation of automatic repair algorithms asking a variety of experimental questions. The datasets have empirically defined guarantees of reproducibility and benchmark quality, and each study object is categorized to facilitate qualitative evaluation and comparisons by category of bug or program. The article presents baseline experimental results on both datasets for three existing repair methods, GenProg, AE, and TrpAutoRepair, to reduce the burden on researchers who adopt these datasets for their own comparative evaluations.},
+  volume={41},
+  url={https://ieeexplore.ieee.org/ielaam/32/7349123/7153570-aam.pdf},
+  number={12},
+  pages={1236-1256}
+}
+
+@inproceedings{jsbugs,
+  title={Discovering bug patterns in JavaScript},
+  author={Hanam, Quinn and Brito, Fernando S de M and Mesbah, Ali},
+  booktitle={Proceedings of the 2016 24th ACM SIGSOFT international symposium on foundations of software engineering},
+  pages={144--156},
+  abstract={JavaScript has become the most popular language used by
+developers for client and server side programming. The lan guage, however, still lacks proper support in the form of warnings about potential bugs in the code. Most bug find ing tools in use today cover bug patterns that are discov ered by reading best practices or through developer intu ition and anecdotal observation. As such, it is still unclear which bugs happen frequently in practice and which are important for developers to be fixed. We propose a novel semi-automatic technique, called BugAID, for discovering the most prevalent and detectable bug patterns. BugAID is based on unsupervised machine learning using language construct-based changes distilled from AST differencing of bug fixes in the code. We present a large-scale study of common bug patterns by mining 105K commits from 134 server-side JavaScript projects. We discover 219 bug fixing change types and discuss 13 pervasive bug patterns that oc cur across multiple projects and can likely be prevented with better tool support. Our findings are useful for improving tools and techniques to prevent common bugs in JavaScript, guiding tool integration for IDEs, and making developers aware of common mistakes involved with programming in JavaScript.},
+  url={https://dl.acm.org/doi/pdf/10.1145/2950290.2950308},
+  year={2016}
+}
+
+@inproceedings{quixbugs,
+  author = {Lin, Derrick and Koppel, James and Chen, Angela and Solar-Lezama, Armando},
+  title = {QuixBugs: A Multi-Lingual Program Repair Benchmark Set Based on the Quixey Challenge},
+  year = {2017},
+  isbn = {9781450355148},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  pages = {55–56},
+  numpages = {2},
+  keywords = {benchmark, automated program repair},
+  location = {Vancouver, BC, Canada},
+  url={https://dl.acm.org/doi/pdf/10.1145/3135932.3135941},
+  abstract={Recent years have seen an explosion of work in automated programrepair. While previous work has focusedexclusively on tools for single languages, recent work in multi-language transformation has opened the door for multi-language pro gram repair tools. Evaluating the performance of such a tool requires having a benchmark set of similar buggy programs in different languages. We present QuixBugs, consisting of 40 programs translated to both Python and Java, each with a bug on asingle line. The QuixBugs benchmark suite is based on problems from the Quixey Challenge, where program mers were given a short buggy program and 1 minute to fix the bug.},
+  series = {SPLASH Companion 2017}
+}
+
+@inproceedings{cvedataset,
+  title={AC/C++ code vulnerability dataset with code changes and CVE summaries},
+  author={Fan, Jiahao and Li, Yi and Wang, Shaohua and Nguyen, Tien N},
+  booktitle={Proceedings of the 17th international conference on mining software repositories},
+  pages={508--512},
+  url={https://dl.acm.org/doi/pdf/10.1145/3379597.3387501},
+  abstract={We collected a large C/C++ code vulnerability dataset from open-source Github projects, namely Big-Vul. We crawled the public Common Vulnerabilities and Exposures (CVE) database and CVE-related source code repositories. Specifically, we collected the descriptive information of the vulnerabilities from the CVE database, e.g., CVE IDs, CVE severity scores, and CVE summaries. With the CVE information and its related published Github code repository links, we downloaded all of the code repositories and extracted vulnerability related code changes. In total, Big-Vul contains 3,754 code vulnerabilities spanning 91 different vulnerability types. All these code vulnerabilities are extracted from 348 Github projects. All information is stored in the CSV format. We linked the code changes with the CVE descriptive information. Thus, our Big-Vul can be used for various research topics, e.g., detecting and fixing vulnerabilities, analyzing the vulnerability related code changes. Big-Vul is publicly available on Github.},
+  year={2020}
+}
+
+@inbook{bugsinpy,
+  author = {Widyasari, Ratnadira and Sim, Sheng Qin and Lok, Camellia and Qi, Haodi and Phan, Jack and Tay, Qijin and Tan, Constance and Wee, Fiona and Tan, Jodie Ethelda and Yieh, Yuheng and Goh, Brian and Thung, Ferdian and Kang, Hong Jin and Hoang, Thong and Lo, David and Ouh, Eng Lieh},
+  title = {BugsInPy: A Database of Existing Bugs in Python Programs to Enable Controlled Testing and Debugging Studies},
+  year = {2020},
+  isbn = {9781450370431},
+  abstract={The 2019 edition of Stack Overflow developer survey highlights that, for the first time, Python outperformed Java in terms of popularity. The gap between Python and Java further widened in the 2020 edition of the survey. Unfortunately, despite the rapid increase in Python's popularity, there are not many testing and debugging tools that are designed for Python. This is in stark contrast with the abundance of testing and debugging tools for Java. Thus, there is a need to push research on tools that can help Python developers.
+One factor that contributed to the rapid growth of Java testing and debugging tools is the availability of benchmarks. A popular benchmark is the Defects4J benchmark; its initial version contained 357 real bugs from 5 real-world Java programs. Each bug comes with a test suite that can expose the bug. Defects4J has been used by hundreds of testing and debugging studies and has helped to push the frontier of research in these directions.
+In this project, inspired by Defects4J, we create another benchmark database and tool that contain 493 real bugs from 17 real-world Python programs. We hope our benchmark can help catalyze future work on testing and debugging tools that work on Python programs.},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  pages = {1556–1560},
+  numpages = {5}
+}

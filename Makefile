@@ -1,9 +1,11 @@
 default: main.pdf
 
 TEXSRC = main.tex Makefile related-work.tex
+BIBSRC = bibtex/*.bib
 
-main.bib: bibtex
-	@cat bibtex/*.bib > main.bib
+main.bib: $(BIBSRC) Makefile
+	@sync
+	@cat $(BIBSRC) > main.bib
 
 main.pdf: $(TEXSRC) main.bib
 	latexmk -pdflua -halt-on-error main.tex
