@@ -1,5 +1,6 @@
 @comment{
 SLRs, reviews, surveys, empirical studies, etc. on software engineering topics.
+Added by snowballing: 7
 }
 @article{llm4se,
   title={Towards an understanding of large language models in software engineering tasks},
@@ -122,6 +123,39 @@ The system operates through a structured four-step process: (1) Code Generation,
   publisher={ACM New York, NY, USA}
 }
 
+@article{promptsurvey,
+  title={Pre-train, prompt, and predict: A systematic survey of prompting methods in natural language processing},
+  author={Liu, Pengfei and Yuan, Weizhe and Fu, Jinlan and Jiang, Zhengbao and Hayashi, Hiroaki and Neubig, Graham},
+  journal={ACM computing surveys},
+  volume={55},
+  number={9},
+  pages={1--35},
+  year={2023},
+  url={https://dl.acm.org/doi/pdf/10.1145/3560815},
+  publisher={ACM New York, NY}
+}
+
+@article{ragsurvey,
+  title={Retrieval-augmented generation for ai-generated content: A survey},
+  author={Zhao, Penghao and Zhang, Hailin and Yu, Qinhan and Wang, Zhengren and Geng, Yunteng and Fu, Fangcheng and Yang, Ling and Zhang, Wentao and Jiang, Jie and Cui, Bin},
+  journal={Data Science and Engineering},
+  pages={1--29},
+  year={2026},
+  url={https://link.springer.com/content/pdf/10.1007/s41019-025-00335-5.pdf},
+  publisher={Springer}
+}
+
+@inproceedings{apranalysis,
+  title={An analysis of the automatic bug fixing performance of chatgpt},
+  author={Sobania, Dominik and Briesch, Martin and Hanna, Carol and Petke, Justyna},
+  booktitle={2023 IEEE/ACM International Workshop on Automated Program Repair (APR)},
+  pages={23--30},
+  url={https://arxiv.org/abs/2301.08653},
+  abstract={To support software developers in finding and fixing software bugs, several automated program repair techniques have been introduced. Given a test suite, standard methods usually either synthesize a repair, or navigate a search space of software edits to find test-suite passing variants. Recent program repair methods are based on deep learning approaches. One of these novel methods, which is not primarily intended for automated program repair, but is still suitable for it, is ChatGPT. The bug fixing performance of ChatGPT, however, is so far unclear. Therefore, in this paper we evaluate ChatGPT on the standard bug fixing benchmark set, QuixBugs, and compare the perfor mance with the results of several other approaches reported in the literature. We find that ChatGPT’s bug fixing performance is competitive to the common deep learning approaches CoCoNut and Codex and notably better than the results reported for the standard program repair approaches. In contrast to previous approaches, ChatGPT offers a dialogue system through which further information, e.g., the expected output for a certain input or an observed error message, can be entered. By providing such hints to ChatGPT, its success rate can be further increased, fixing 31 out of 40 bugs, outperforming state-of-the-art.},
+  year={2023},
+  organization={IEEE}
+}
+
 @comment{
 Empirical studies on practitioner's debugging behavior, expectations, etc.
 }
@@ -154,4 +188,15 @@ Empirical studies on practitioner's debugging behavior, expectations, etc.
   abstract={Research has produced many approaches to automatically locate, explain, and repair software bugs. But do these approaches relate to the way practitioners actually locate, understand, and fix bugs? To help answer this question, we have collected a dataset named DBGBENCH --- the correct fault locations, bug diagnoses, and software patches of 27 real errors in open-source C projects that were consolidated from hundreds of debugging sessions of professional software engineers. Moreover, we shed light on the entire debugging process, from constructing a hypothesis to submitting a patch, and how debugging time, difficulty, and strategies vary across practitioners and types of errors. Most notably, DBGBENCH can serve as reality check for novel automated debugging and repair techniques.},
   keywords={software debugging, software testing},
   year={2017}
+}
+
+@misc{impactclm,
+  title={Impact of Code Language Models on Automated Program Repair}, 
+  author={Nan Jiang and Kevin Liu and Thibaud Lutellier and Lin Tan},
+  year={2023},
+  eprint={2302.05020},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE},
+  abstract={Automated program repair (APR) aims to help developers improve software reliability by generating patches for buggy programs. Although many code language models (CLM) are developed and effective in many software tasks such as code completion, there has been little comprehensive, in-depth work to evaluate CLMs' fixing capabilities and to fine-tune CLMs for the APR task. Firstly, this work is the first to evaluate ten CLMs on four APR benchmarks, which shows that surprisingly, the best CLM, as is, fixes 72% more bugs than the state-of-the-art deep-learning (DL)-based APR techniques. Secondly, one of the four APR benchmarks was created by us in this paper to avoid data leaking for a fair evaluation. Thirdly, it is the first work to fine-tune CLMs with APR training data, which shows that fine-tuning brings 31%-1,267% improvement to CLMs and enables them to fix 46%-164% more bugs than existing DL-based APR techniques. Fourthly, this work studies the impact of buggy lines, showing that CLMs, as is, cannot make good use of the buggy lines to fix bugs, yet fine-tuned CLMs could potentially over-rely on buggy lines. Lastly, this work analyzes the size, time, and memory efficiency of different CLMs. This work shows promising directions for the APR domain, such as fine-tuning CLMs with APR-specific designs, and also raises awareness of fair and comprehensive evaluations of CLMs and calls for more transparent reporting of open-source repositories used in the pre-training data to address the data leaking problem.},
+  url={https://arxiv.org/abs/2302.05020}, 
 }
