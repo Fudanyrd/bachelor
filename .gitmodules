@@ -1,0 +1,3 @@
+[submodule "fduthesis"]
+	path = fduthesis
+	url = git@github.com:Fudanyrd/fduthesis.git
