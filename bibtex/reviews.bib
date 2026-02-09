@@ -79,3 +79,21 @@ The system operates through a structured four-step process: (1) Code Generation,
   primaryClass={cs.AI},
   url={https://arxiv.org/abs/2410.08164}, 
 }
+
+@inproceedings{incorrectfix,
+  author = {Yin, Zuoning and Yuan, Ding and Zhou, Yuanyuan and Pasupathy, Shankar and Bairavasundaram, Lakshmi},
+  title = {How do fixes become bugs?},
+  year = {2011},
+  isbn = {9781450304436},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/2025113.2025121},
+  doi = {10.1145/2025113.2025121},
+  abstract = {Software bugs affect system reliability. When a bug is exposed in the field, developers need to fix them. Unfortunately, the bug-fixing process can also introduce errors, which leads to buggy patches that further aggravate the damage to end users and erode software vendors' reputation.This paper presents a comprehensive characteristic study on incorrect bug-fixes from large operating system code bases including Linux, OpenSolaris, FreeBSD and also a mature commercial OS developed and evolved over the last 12 years, investigating not only themistake patterns during bug-fixing but also the possible human reasons in the development process when these incorrect bug-fixes were introduced. Our major findings include: (1) at least 14.8\%--24.4\% of sampled fixes for post-release bugs in these large OSes are incorrect and have made impacts to end users. (2) Among several common bug types, concurrency bugs are the most difficult to fix correctly: 39\% of concurrency bug fixes are incorrect. (3) Developers and reviewers for incorrect fixes usually do not have enough knowledge about the involved code. For example, 27\% of the incorrect fixes are made by developers who have never touched the source code files associated with the fix. Our results provide useful guidelines to design new tools and also to improve the development process. Based on our findings, the commercial software vendor whose OS code we evaluated is building a tool to improve the bug fixing and code reviewing process.},
+  booktitle = {Proceedings of the 19th ACM SIGSOFT Symposium and the 13th European Conference on Foundations of Software Engineering},
+  pages = {26-36},
+  numpages = {11},
+  keywords = {bug fixing, human factor, incorrect fixes, software bugs, testing},
+  location = {Szeged, Hungary},
+  series = {ESEC/FSE '11}
+}
