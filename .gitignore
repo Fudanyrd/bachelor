@@ -1,0 +1,18 @@
+# latex
+*.cls
+*.sty
+*.def
+
+# generated
+*.aux
+*.lof
+*.log
+*.out
+*.thm
+*.toc
+main.bib
+
+# images, documents
+*.pdf
+*.png
+
