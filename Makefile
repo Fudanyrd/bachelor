@@ -1,6 +1,6 @@
 default: main.pdf
 
-TEXSRC = main.tex
+TEXSRC = main.tex Makefile related-work.tex
 
 main.bib: bibtex
 	@cat bibtex/*.bib > main.bib
@@ -13,4 +13,5 @@ main.pdf: $(TEXSRC) main.bib
 
 .PHONY: clean
 clean:
-	rm -f main.aux main.bbl main.blg main.log main.pdf
+	-rm -f main.aux main.bbl main.blg main.log main.pdf
+	-rm -f main.fdb_latexmk main.fls

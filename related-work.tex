@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Please Keep each line less than 80 characters.
+%
+% requires: data/bibtex/slr.bib
+% requires packge: natbib,
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{引 言}
+
+% We summarize our contributions as follows:
+% + We provide a Systematic Literature Review of articles related to LLM-based
+% automatic program repair since 2021; 
+\par 我们归纳我们的贡献如下:
+\begin{itemize}
+    \item 我们详尽检索了2021年, 有关"基于大语言模型的自动程序修复方法"的文献,
+    并提供了系统文献综述 (Systematic Literature Review, SLR);
+\end{itemize}
+
+\chapter{相 关 工 作}
+
+% \par We present a Systematic Literature Review (SLR) including articles
+% published in January 2021 and Feburary 2026 that focuses on the use of
+% LLM based solutions to Automated Program Repairs (APR).
+% The SLR follows the methdology proposed by Kitchenham et al.
+% \citep{slrguidese, segress}, used in many SE-related SLRs
+% \citep{dl4defence, ml4se, llm4se2}. Following the guidelines provided by
+% Kitchenham et al., our methodology include three main steps:
+% planning the review (i.e. Section~\ref{sec:search}), conducting the review
+% (i.e. Section~\ref{sec:selection}), and analyzing the basic review results 
+% (i.e. Section~\ref{sec:analysis}).
+\par 我们进行了一项系统文献综述（SLR），涵盖了2021年1月至2026年2月期间发表的文章，
+重点关注基于大型语言模型（LLM）的自动程序修复（APR）解决方案的使用情况。
+这项SLR遵循了Kitchenham等人提出的方法论\citep{slrguidese, segress}，该方法已被许
+多与软件工程相关的SLR使用\citep{dl4defence, ml4se, llm4se2}。
+根据Kitchenham等人提供的指南，我们的方法论包括三个主要步骤：
+规划审查（即第\ref{sec:search}节），进行审查（即第\ref{sec:selection}节），以及
+分析基本审查结果（即第\ref{sec:analysis}节）。
+
+% \section{Search Strategy}\label{sec:search}
+\section{检索方法}\label{sec:search}
+
+% \par We employed the \textbf{Precise Search Strategy} \citep{optimalsearch}
+% for article search, i.e., we crafted the search string to maximize the relevance 
+% of resulting studies. More specifically, we followed the following three steps
+% in order to establish a set of relevant studies:
+%
+% \begin{enumerate}
+%  \item Conduct an automated search based on our crafted search string;
+%  \item Screen the title and abstract of all articles and filter by
+%        inclusion/exclusion criteria;
+%  \item Conduct snowballing search on the result of previous step.
+% \end {enumerate}
+
+\par 我们采用了\textbf{精确搜索策略} \citep{optimalsearch}进行文章检索，
+即我们精心设计了搜索字符串，以最大化结果研究的相关性。更具体地说，
+我们遵循以下三个步骤来建立一组相关研究：
+
+\begin{enumerate}
+    \item 基于我们设计的搜索字符串进行自动化搜索；
+    \item 筛选所有文章的标题和摘要，并根据包含/排除标准进行过滤；
+    \item 对上一步的结果进行滚雪球式搜索 (Snowballing Search)。
+\end{enumerate}
+
+% \par Our search string needs to combine three set of keywords: 
+% one pertaining to software defects, one related to large language models,
+% last about the task definition. The complete set of search keywords is
+% as follows:
+\par 我们的搜索字符串需要结合三组关键词：一组与软件缺陷相关，一组与大型语言模型相关，
+最后一组与任务定义相关。完整的搜索关键词如下：
+\begin{itemize}
+  % \item \textit{Keywords related to LLMs}:
+  \item \textit{与大语言模型相关的关键词}:
+  large language model, LLM, GPT, CodeX, agent
+  % \item \textit{Keywords related to Task Definition}:
+  \item \textit{与任务定义相关的关键词}:
+  repair, resolve, reproduce, fix, localize
+  % \item \textit{Keywords related to software defects}:
+  \item \textit{与软件缺陷相关的关键词}:
+  bug, defect, vulnerability, crash
+\end{itemize}
+
+% \par It is important to note that the list of keywords related to 
+% LLMS we setup includes \textit{agent}, that does not seem to be
+% necessarily related to LLMs. The reason for this is that we observe 
+% recent advancement in agentic technologies \citep{agents}
+% and their applications in Software Engineering
+% \citep{agent4bugfixempirical,agenticbugreproductioneffective,langgraphbugfix},
+%  and that we want to avoid omitting
+% articles related to our research as much as possible.
+\par 需要注意的是，我们设置的与LLMs相关的关键词列表中包括\textit{agent}，
+这似乎并不一定与LLMs相关。
+原因是我们观察到最近在代理技术方面的进展\citep{agents}以及它们在软件
+工程中的应用
+\citep{agent4bugfixempirical,agenticbugreproductioneffective,langgraphbugfix}，
+我们希望尽可能避免遗漏与我们的研究相关的文章。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \paragraph{Search Databases}. After determining the search strings, we
+% employed the SLR Tool\citep{slrtool} and conducted
+% an automated search across four widely used databases
+% \footnote{ACM Digital Library, arXiv, IEEE Xplore, Springer}, 
+% which cover most published
+% articles and preprints of under-review articles. Since we observe that 
+% most LLM4SE articles are published after 2021, we focus our search on articles
+% published from that year onward. The search results from each database were
+% merged and deduplicated with SLR Tool\citep{slrtool}. Specifically, we obtained
+% 373 articles from ACM Digital Library, 213 articles from arXiv, 9 articles
+% from IEEE Xplore, and 1187 articles from Springer.
+\paragraph{搜索数据库}. 确定搜索字符串后，我们使用SLR工具\citep{slrtool}在四个广泛
+使用的数据库
+\footnote{ACM Digital Library, arXiv, IEEE Xplore, Springer}上进行了自动化搜索，
+这些数据库涵盖了大多数已发表的文章和正在审核的预印本文章。由于我们观察到大多数LLM4SE文
+章是在2021年之后发表的，我们将搜索重点放在从那年开始发表的文章上。
+每个数据库的搜索结果都通过SLR工具\citep{slrtool}进行了合并和去重。
+具体来说，我们从ACM Digital Library获得了373篇文章，从arXiv获得了213篇文章，
+从IEEE Xplore获得了9篇文章，从Springer获得了1187篇文章。
+
+% \section{Study Selection}\label{sec:selection}
+\section{研究选择}\label{sec:selection}
+
+% \section{Data Extraction and Analysis}\label{sec:analysis}
+\section{数据提取与分析}\label{sec:analysis}
+
