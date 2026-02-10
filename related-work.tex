@@ -90,8 +90,8 @@
 % an automated search across four widely used databases
 % \footnote{ACM Digital Library, arXiv, IEEE Xplore, Springer}, 
 % which cover most published
-% articles and preprints of under-review articles. Since we observe that 
-% most LLM4SE articles are published after 2021, we focus our search on articles
+% articles and preprints of under-review articles. Given that the first
+% LLM trained on code corpus was published in 2021\citep{codex}, we focus our search on articles
 % published from that year onward. The search results from each database were
 % merged and deduplicated with SLR Tool\citep{slrtool}. Specifically, we obtained
 % 373 articles from ACM Digital Library, 213 articles from arXiv, 9 articles
@@ -99,8 +99,9 @@
 \paragraph{搜索数据库}. 确定搜索字符串后，我们使用SLR工具\citep{slrtool}在四个广泛
 使用的数据库
 \footnote{ACM Digital Library, arXiv, IEEE Xplore, Springer}上进行了自动化搜索，
-这些数据库涵盖了大多数已发表的文章和正在审核的预印本文章。由于我们观察到大多数LLM4SE文
-章是在2021年之后发表的，我们将搜索重点放在从那年开始发表的文章上。
+这些数据库涵盖了大多数已发表的文章和正在审核的预印本文章。
+由于第一个在代码语料库上训练的LLM是在2021年发布的\citep{codex}
+，我们将搜索重点放在从那年开始发表的文章上。
 每个数据库的搜索结果都通过SLR工具\citep{slrtool}进行了合并和去重。
 具体来说，我们从ACM Digital Library获得了373篇文章，从arXiv获得了213篇文章，
 从IEEE Xplore获得了9篇文章，从Springer获得了1187篇文章。
@@ -186,14 +187,14 @@
 % repairment? \textit{RQ2} explores the effectiveness 
 % of different optimization techniques in the context of LLM for 
 % automatic program repairment. This includes an investigation into 
-% Retrieval Augmentation \citep{ragsurvey}, 
+% Retrieval Augmentation \citep{ragnlp, ragsurvey}, 
 % Prompt Engineering \citep{promptsurvey}, as well as Agentic 
 % Corportation \citep{agents}, which are designed to enhance the performance of
 % LLMs on various NLP tasks.
 
 \paragraph{RQ2:} 目前有哪些技术被应用于提升大语言模型\footnote{以及多智能体系统}
 在程序修复方面的性能？\textit{RQ2}探讨了不同优化技术在LLM自动程序修复背景下
-的有效性。这包括对检索增强\citep{ragsurvey}
+的有效性。这包括对检索增强\citep{ragnlp, ragsurvey}
 、提示词工程\citep{promptsurvey}、和多智能体协作\citep{agents}等
 用于增强大语言模型表现技术的总结。
 

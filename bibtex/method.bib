@@ -1,6 +1,6 @@
 @comment{
 Technical papers that propose novel methodologies.
-Added by snowballing: 1
+Added by snowballing: 4
 }
 
 @article{genprog,
@@ -227,4 +227,136 @@ numpages = {2},
 keywords = {software vulnerability detection, prompt engineering, large language model, chatgpt},
 location = {Lisbon, Portugal},
 series = {ICSE-Companion '24}
+}
+
+@article{ragnlp,
+  title={Retrieval-augmented generation for knowledge-intensive nlp tasks},
+  author={Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K{\"u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt{\"a}schel, Tim and others},
+  journal={Advances in neural information processing systems},
+  volume={33},
+  pages={9459--9474},
+  url={https://proceedings.neurips.cc/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf},
+  year={2020}
+}
+
+@inbook{san2patch,
+author = {Kim, Youngjoon and Shin, Sunguk and Kim, Hyoungshick and Yoon, Jiwon},
+title = {Logs in, patches out: automated vulnerability repair via tree-of-thought LLM analysis},
+year = {2025},
+isbn = {978-1-939133-52-6},
+publisher = {USENIX Association},
+address = {USA},
+abstract = {Research on automated vulnerability repair often requires extensive program analysis and expert input, making it challenging to deploy in practice. We propose SAN2PATCH, a system that generates patches using only sanitizer logs and source code, eliminating the need for costly program analysis or manual intervention. SAN2PATCH employs multi-stage reasoning with Large Language Models (LLMs) to decompose the patching process into four distinct tasks: vulnerability comprehension, fault localization, fix strategy formulation, and patch generation. Through tree-structured prompting and rigorous validation, SAN2PATCH can generate diverse, functionally-correct patches. Evaluations on the VulnLoc dataset show that SAN2PATCH successfully patches 79.5\% of vulnerabilities, surpassing state-of-the-art tools like ExtractFix (43\%) and VulnFix (51\%) by significant margins. On our newly curated SAN2VULN dataset of 27 new vulnerabilities from various open-source projects, SAN2PATCH achieves a 63\% success rate, demonstrating its effectiveness on modern security flaws. Notably, SAN2PATCH excels at patching complex memory-related vulnerabilities, successfully fixing 81.8\% of buffer overflows while preserving program functionality. This high performance, combined with minimal deployment requirements and elimination of manual steps, makes SAN2PATCH a practical solution for real-world vulnerability remediation.},
+booktitle = {Proceedings of the 34th USENIX Conference on Security Symposium},
+articleno = {227},
+url={https://www.usenix.org/system/files/usenixsecurity25-kim-youngjoon.pdf},
+numpages = {19}
+}
+
+@article{adverintentagent,
+author = {Ye, He and Yang, Aidan Z.H. and Hu, Chang and Wang, Yanlin and Zhang, Tao and Le Goues, Claire},
+title = {AdverIntent-Agent: Adversarial Reasoning for Repair Based on Inferred Program Intent},
+year = {2025},
+issue_date = {July 2025},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {2},
+number = {ISSTA},
+url = {https://doi.org/10.1145/3728939},
+doi = {10.1145/3728939},
+abstract = {Automated program repair (APR) has shown promising results, particularly with the use of neural networks. Currently, most APR tools focus on code transformations specified by test suites, rather than reasoning about the program’s intent and the high-level bug specification. Without a proper understanding of program intent, these tools tend to generate patches that overfit incomplete test suites and fail to reflect the developer’s intentions. However, reasoning about program intent is challenging. In our work, we propose an approach called AdverIntent-Agent, based on critique and adversarial reasoning. Our approach is novel to shift the focus from generating multiple APR patches to inferring multiple potential program intents. Ideally, we aim to infer intents that are, to some extent, adversarial to each other, maximizing the probability that at least one aligns closely with the developer’s original intent. AdverIntent-Agent is a multi-agent approach consisting of three agents: a reasoning agent, a test agent, and a repair agent. First, the reasoning agent generates adversarial program intents along with the corresponding faulty statements. Next, the test agent produces adversarial test cases that align with each inferred intent, constructing oracles that use the same inputs but have different expected outputs. Finally, the repair agent uses dynamic and precise LLM prompts to generate patches that satisfy both the inferred program intent and the generated tests. AdverIntent-Agent was evaluated on two benchmarks: Defects4J 2.0 and HumanEval-Java. AdverIntentAgent correctly repaired 77 and 105 bugs in both benchmarks, respectively. Our work helps reduce the effort required to review patches by enabling developers to assess program intent in natural language, rather than reviewing code patches.},
+journal = {Proc. ACM Softw. Eng.},
+month = jun,
+articleno = {ISSTA062},
+numpages = {23},
+keywords = {Large Language Models, Program Repair}
+}
+
+@misc{repairagent,
+ abstract = {Automated program repair has emerged as a powerful technique to mitigate the impact of software bugs on system reliability and user experience. This paper introduces RepairAgent, the first work to address the program repair challenge through an autonomous agent based on a large language model (LLM). Unlike existing deep learning-based approaches, which prompt a model with a fixed prompt or in a fixed feedback loop, our work treats the LLM as an agent capable of autonomously planning and executing actions to fix bugs by invoking suitable tools. RepairAgent freely interleaves gathering information about the bug, gathering repair ingredients, and validating fixes, while deciding which tools to invoke based on the gathered information and feedback from previous fix attempts. Key contributions that enable RepairAgent include a set of tools that are useful for program repair, a dynamically updated prompt format that allows the LLM to interact with these tools, and a finite state machine that guides the agent in invoking the tools. Our evaluation on the popular Defects4J dataset demonstrates RepairAgent's effectiveness in autonomously repairing 164 bugs, including 39 bugs not fixed by prior techniques. Interacting with the LLM imposes an average cost of 270,000 tokens per bug, which, under the current pricing of OpenAI's GPT-3.5 model, translates to 14 cents of USD per bug. To the best of our knowledge, this work is the first to present an autonomous, LLM-based agent for program repair, paving the way for future agent-based techniques in software engineering.},
+ archiveprefix = {arXiv},
+ author = {Islem Bouzenia and Premkumar Devanbu and Michael Pradel},
+ eprint = {2403.17134},
+ primaryclass = {cs.SE},
+ title = {RepairAgent: An Autonomous, LLM-Based Agent for Program Repair},
+ url = {https://arxiv.org/abs/2403.17134},
+ year = {2024}
+}
+
+@misc{llmselfdebug,
+  title={Teaching Large Language Models to Self-Debug}, 
+  author={Xinyun Chen and Maxwell Lin and Nathanael Scharli and Denny Zhou},
+  year={2023},
+  eprint={2304.05128},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  abstract={Large language models (LLMs) have achieved impressive performance on code generation. However, for complex programming tasks, generating the correct solution in one go becomes challenging, thus some prior works have designed program repair approaches to improve code generation performance. In this work, we propose Self-Debugging, which teaches a large language model to debug its predicted program via few-shot demonstrations. In particular, we demonstrate that Self-Debugging can teach the large language model to perform rubber duck debugging; i.e., without any human feedback on the code correctness or error messages, the model is able to identify its mistakes by investigating the execution results and explaining the generated code in natural language. Self-Debugging achieves the state-of-the-art performance on several code generation benchmarks, including the Spider dataset for text-to-SQL generation, TransCoder for C++-to-Python translation, and MBPP for text-to-Python generation. On the Spider benchmark where there are no unit tests to verify the correctness of predictions, Self-Debugging with code explanation consistently improves the baseline by 2-3%, and improves the prediction accuracy on problems of the hardest level by 9%. On TransCoder and MBPP where unit tests are available, Self-Debugging improves the baseline accuracy by up to 12%. Meanwhile, by leveraging feedback messages and reusing failed predictions, Self-Debugging notably improves sample efficiency, and can match or outperform baseline models that generate more than 10x candidate programs.},
+  url={https://arxiv.org/abs/2304.05128}, 
+}
+
+@inproceedings{aprfromllm,
+  title={Automated repair of programs from large language models},
+  author={Fan, Zhiyu and Gao, Xiang and Mirchev, Martin and Roychoudhury, Abhik and Tan, Shin Hwei},
+  booktitle={2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)},
+  pages={1469--1481},
+  url={https://arxiv.org/abs/2205.10583},
+  abstract={Large language models such as Codex, have shown the capability to produce code for many programming tasks. However, the success rate of existing models is low, especially for complex programming tasks. One of the reasons is that language models lack awareness of program semantics, resulting in incorrect programs, or even programs which do not compile. In this paper, we systematically study whether automated program repair (APR) techniques can fix the incorrect solutions produced by language models in LeetCode contests. The goal is to study whether APR techniques can enhance reliability in the code produced by large language models. Our study revealed that: (1) automatically generated code shares common programming mistakes with human-crafted solutions, indicating APR techniques may have potential to fix auto-generated code; (2) given bug location information provided by a statistical fault localization approach, the newly released Codex edit mode, which supports editing code, is similar to or better than existing Java repair tools TBar and Recoder in fixing incorrect solutions. By analyzing the experimental results generated by these tools, we provide several suggestions: (1) enhancing APR tools to surpass limitations in patch space (e.g., introducing more flexible fault localization) is desirable; (2) as large language models can derive more fix patterns by training on more data, future APR tools could shift focus from adding more fix patterns to synthesis/semantics based approaches, (3) combination of language models with APR to curate patch ingredients, is worth studying.},
+  year={2023},
+  organization={IEEE}
+}
+
+@article{contrastrepair,
+  title={ContrastRepair: Enhancing Conversation-Based Automated Program Repair via Contrastive Test Case Pairs},
+  volume={34},
+  ISSN={1557-7392},
+  url={http://dx.doi.org/10.1145/3719345},
+  DOI={10.1145/3719345},
+  number={8},
+  journal={ACM Transactions on Software Engineering and Methodology},
+  publisher={Association for Computing Machinery (ACM)},
+  author={Kong, Jiaolong and Xie, Xiaofei and Cheng, Mingfei and Liu, Shangqing and Du, Xiaoning and Guo, Qi},
+  year={2025},
+  month=oct, 
+  pages={1--31}
+}
+
+@article{invalidator,
+  author={Le-Cong, Thanh and Luong, Duc-Minh and Le, Xuan Bach D. and Lo, David and Tran, Nhat-Hoa and Quang-Huy, Bui and Huynh, Quyet-Thang},
+  journal={IEEE Transactions on Software Engineering}, 
+  title={Invalidator: Automated Patch Correctness Assessment Via Semantic and Syntactic Reasoning}, 
+  year={2023},
+  volume={49},
+  url={https://ieeexplore.ieee.org/document/10066209},
+  number={6},
+  pages={3411-3429},
+  keywords={Syntactics;Semantics;Maintenance engineering;Cognition;Manuals;Codes;Source coding;Automated patch correctness assessment;automated program repair;code representations;overfitting problem;program invariants},
+  doi={10.1109/TSE.2023.3255177}
+}
+
+@misc{unidebugger,
+  title={UniDebugger: Hierarchical Multi-Agent Framework for Unified Software Debugging}, 
+  author={Cheryl Lee and Chunqiu Steven Xia and Longji Yang and Jen-tse Huang and Zhouruixin Zhu and Lingming Zhang and Michael R. Lyu},
+  year={2025},
+  eprint={2404.17153},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE},
+  url={https://arxiv.org/abs/2404.17153}, 
+}
+
+@inproceedings{recode,
+author = {Zhao, Yicong and Chen, Shisong and Zhang, Jiacheng and Li, Zhixu},
+title = {ReCode: Improving LLM-based Code Repair with Fine-Grained Retrieval-Augmented Generation},
+year = {2025},
+isbn = {9798400720406},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3746252.3761035},
+doi = {10.1145/3746252.3761035},
+abstract = {Recent advances in large language models (LLMs) have demonstrated impressive capabilities in code-related tasks such as code generation and automated program repair. Despite their promising performance, most existing approaches for code repair suffer from high training costs or computationally expensive inference. Retrieval-augmented generation (RAG), with its efficient in-context learning paradigm, offers a more scalable alternative. However, conventional retrieval strategies, which are often based on holistic code-text embeddings, fail to capture the structural intricacies of code, resulting in suboptimal retrieval quality. To address the above limitations, we propose ReCode, a fine-grained retrieval-augmented in-context learning framework designed for accurate and efficient code repair. Specifically, ReCode introduces two key innovations: (1) an algorithm-aware retrieval strategy that narrows the search space using preliminary algorithm type predictions; and (2) a modular dual-encoder architecture that separately processes code and textual inputs, enabling fine-grained semantic matching between input and retrieved contexts. Furthermore, we propose RACodeBench, a new benchmark constructed from real-world user-submitted buggy code, which addresses the limitations of synthetic benchmarks and supports realistic evaluation. Experimental results on RACodeBench and competitive programming datasets demonstrate that ReCode achieves higher repair accuracy with significantly reduced inference cost, highlighting its practical value for real-world code repair scenarios.},
+booktitle = {Proceedings of the 34th ACM International Conference on Information and Knowledge Management},
+pages = {4368–4378},
+numpages = {11},
+keywords = {benchmark, code repair, in-context learning, retrieval augmented},
+location = {Seoul, Republic of Korea},
+series = {CIKM '25}
 }
