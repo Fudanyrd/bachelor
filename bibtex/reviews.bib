@@ -1,6 +1,6 @@
 @comment{
 SLRs, reviews, surveys, empirical studies, etc. on software engineering topics.
-Added by snowballing: 7
+Added by snowballing: 15
 }
 @article{llm4se,
   title={Towards an understanding of large language models in software engineering tasks},
@@ -24,6 +24,38 @@ Added by snowballing: 7
   url={https://dl.acm.org/doi/pdf/10.1145/3695988},
   year={2024},
   publisher={ACM New York, NY}
+}
+@misc{llm4se3,
+  title={Large Language Models for Software Engineering: Survey and Open Problems}, 
+  author={Angela Fan and Beliz Gokkaya and Mark Harman and Mitya Lyubarskiy and Shubho Sengupta and Shin Yoo and Jie M. Zhang},
+  year={2023},
+  eprint={2310.03533},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE},
+  url={https://arxiv.org/abs/2310.03533}, 
+}
+
+@article{llmcodequality,
+title = {Using LLMs to enhance code quality: A systematic literature review},
+journal = {Information and Software Technology},
+volume = {190},
+pages = {107960},
+year = {2026},
+issn = {0950-5849},
+doi = {https://doi.org/10.1016/j.infsof.2025.107960},
+url = {https://www.sciencedirect.com/science/article/pii/S095058492500299X},
+author = {Nawaf Alomari and Moussa Redah and Ahmad Ashraf and Mohammad Alshayeb},
+keywords = {Code quality, LLM, systematic literature review},
+abstract = {Context:
+Large Language Models (LLMs) are increasingly used in software engineering to enhance code quality through tasks such as refactoring and code smell detection and many other tasks. Code smells are poor design decisions that can be resolved by changing the internal structure of the code without affecting its output, a process known as refactoring.
+Objective:
+This study systematically reviews the use of LLMs in code quality enhancement, focusing on techniques such as refactoring, smell detection, and other code improvement methods.
+Method:
+Using SLR techniques, we reviewed 49 studies up to September 2024, analyzing both qualitative and quantitative data to assess trends and effectiveness.
+Results:
+The field is active, with refactoring as the most common task, followed by smell detection. Refactored code by LLMs is not reliable. Prompting is used more frequently than fine-tuning, with few-shot learning as the leading prompting method. Java and Python are the most represented languages, while F1, Precision, Recall, and Accuracy are common evaluation metrics, along with BLEU and EM for generation tasks. Open-source and general language models are preferred, with validation datasets as the primary validation approach.
+Conclusions:
+LLMs show promise for code quality improvement, but challenges in optimization and reliability remain. Future research should prioritize fine-tuning for refactoring, linking LLMs to specific quality attributes, developing benchmark datasets, constructing datasets for diverse programming languages, and exploring a wider range of promoting techniques.}
 }
 @article{dl4defence,
   title={Deep learning for android malware defenses: a systematic literature review},
@@ -199,4 +231,138 @@ Empirical studies on practitioner's debugging behavior, expectations, etc.
   primaryClass={cs.SE},
   abstract={Automated program repair (APR) aims to help developers improve software reliability by generating patches for buggy programs. Although many code language models (CLM) are developed and effective in many software tasks such as code completion, there has been little comprehensive, in-depth work to evaluate CLMs' fixing capabilities and to fine-tune CLMs for the APR task. Firstly, this work is the first to evaluate ten CLMs on four APR benchmarks, which shows that surprisingly, the best CLM, as is, fixes 72% more bugs than the state-of-the-art deep-learning (DL)-based APR techniques. Secondly, one of the four APR benchmarks was created by us in this paper to avoid data leaking for a fair evaluation. Thirdly, it is the first work to fine-tune CLMs with APR training data, which shows that fine-tuning brings 31%-1,267% improvement to CLMs and enables them to fix 46%-164% more bugs than existing DL-based APR techniques. Fourthly, this work studies the impact of buggy lines, showing that CLMs, as is, cannot make good use of the buggy lines to fix bugs, yet fine-tuned CLMs could potentially over-rely on buggy lines. Lastly, this work analyzes the size, time, and memory efficiency of different CLMs. This work shows promising directions for the APR domain, such as fine-tuning CLMs with APR-specific designs, and also raises awareness of fair and comprehensive evaluations of CLMs and calls for more transparent reporting of open-source repositories used in the pre-training data to address the data leaking problem.},
   url={https://arxiv.org/abs/2302.05020}, 
+}
+
+@inproceedings{asrsurvey,
+  title={Automatic software repair: A survey},
+  author={Gazzola, Luca and Micucci, Daniela and Mariani, Leonardo},
+  booktitle={Proceedings of the 40th International Conference on Software Engineering},
+  url={https://dl.acm.org/doi/pdf/10.1145/3180155.3182526},
+  abstract={Debugging software failures is still a painful, time consuming, and expensive process. For instance, recent studies showed that debugging activities often account for about 50% of the overall development cost of software products. There are many factors contributing to the cost of debugging, but the most impacting one is the extensive manual effort that is still required to identify and remove faults. So far, the automation of debugging activities essentially resulted in the development of techniques that provide useful insights about the possible locations of faults, the inputs and states of the application responsible for the failures, as well as the anomalous operations executed during failures. However, developers must still put a relevant effort on the analysis of the failed executions to exactly identify the faults that must be fixed. In addition, these techniques do not help the developers with the synthesis of an appropriate fix.},
+  pages={1219--1219},
+  year={2018}
+}
+
+@misc{llminfl,
+  title={Large Language Models in Fault Localisation}, 
+  author={Yonghao Wu and Zheng Li and Jie M. Zhang and Mike Papadakis and Mark Harman and Yong Liu},
+  year={2023},
+  eprint={2308.15276},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE},
+  keywords={Large Language Model, Fault Localisation, ChatGPT, Empirical Study},
+  abstract={Large Language Models (LLMs) have shown promise in multiple software engineering tasks including code generation, program repair, code summarisation, and test generation. Fault localisation is instrumental in enabling automated debugging and repair of programs and was prominently featured as a highlight during the launch event of ChatGPT-4. Nevertheless, the performance of LLMs compared to state-of-the-art methods, as well as the impact of prompt design and context length on their efficacy, remains unclear. To fill this gap, this paper presents an in-depth investigation into the capability of ChatGPT-3.5 and ChatGPT-4, the two state-of-the-art LLMs, on fault localisation. Using the widely-adopted large-scale Defects4J dataset, we compare the two LLMs with the existing fault localisation techniques. We also investigate the consistency of LLMs in fault localisation, as well as how prompt engineering and the length of code context affect the fault localisation effectiveness. Our findings demonstrate that within function-level context, ChatGPT-4 outperforms all the existing fault localisation methods. Additional error logs can further improve ChatGPT models' localisation accuracy and consistency, with an average 46.9% higher accuracy over the state-of-the-art baseline SmartFL on the Defects4J dataset in terms of TOP-1 metric. However, when the code context of the Defects4J dataset expands to the class-level, ChatGPT-4's performance suffers a significant drop, with 49.9% lower accuracy than SmartFL under TOP-1 metric. These observations indicate that although ChatGPT can effectively localise faults under specific conditions, limitations are evident. Further research is needed to fully harness the potential of LLMs like ChatGPT for practical fault localisation applications.},
+  url={https://arxiv.org/abs/2308.15276}, 
+}
+
+@article{apr4vul,
+author={Bui Quang-Cuong and Paramitha Ranindya and Vu Duc-Ly and Massacci Fabio and Scandariato Riccardo},
+title="APR4Vul: an empirical study of automatic program repair techniques on real-world Java vulnerabilities",
+journal="Empirical Software Engineering",
+year="2023",
+month="Dec",
+day="06",
+volume="29",
+number="1",
+pages="18",
+abstract="Security vulnerability fixes could be a promising research avenue for Automated Program Repair (APR) techniques. In recent years, APR tools have been thoroughly developed for fixing generic bugs. However, the area is still relatively unexplored when it comes to fixing security bugs or vulnerabilities. In this paper, we evaluate nine state-of-the-art APR tools and one vulnerability-specific repair tool. In particular, we investigate their ability to generate patches for 79 real-world Java vulnerabilities in the Vul4J dataset, as well as the level of trustworthiness of these patches. We evaluate the tools with respect to their ability to generate security patches that are (i) testable, (ii) having the positive effect of closing the vulnerability, and (iii) not having side effects from a functional point of view. Our results show that the evaluated APR tools were able to generate testable patches for around 20{\%} of the considered vulnerabilities. On average, nearly 73{\%} of the testable patches indeed eliminate the vulnerabilities, but only 44{\%} of them could actually fix security bugs while maintaining the functionalities. To understand the root cause of this phenomenon, we conduct a detailed comparative study of the general bug fix patterns in Defect4J and the vulnerability fix patterns in ExtraVul (which we extend from Vul4J). Our investigation shows that, although security patches are short in terms of lines of code, they contain unique characteristics in their fix patterns compared to general bugs. For example, many security fixes require adding method calls. These method calls contain specific input validation-related keywords, such as encode, normalize, and trim. In this regard, our study suggests that additional repair patterns should be implemented for existing APR tools to fix more types of security vulnerabilities.",
+issn="1573-7616",
+doi="10.1007/s10664-023-10415-7",
+url="https://doi.org/10.1007/s10664-023-10415-7"
+}
+
+@inproceedings{evaluateavr,
+author = {Khan, Zanis Ali and Garg, Aayush and Tang, Qiang},
+title = {A Multi-dataset Evaluation of Models for Automated Vulnerability Repair},
+year = {2025},
+isbn = {978-3-032-00629-5},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+url = {https://doi.org/10.1007/978-3-032-00630-1_5},
+doi = {10.1007/978-3-032-00630-1_5},
+abstract = {Software vulnerabilities pose significant security threats, requiring effective mitigation. While Automated Program Repair (APR) has advanced in fixing general bugs, vulnerability patching—a security-critical aspect of APR—remains underexplored. This study investigates pre-trained language models, CodeBERT and CodeT5, for automated vulnerability patching across six datasets and four languages. We evaluate their accuracy and generalization to unknown vulnerabilities. Results show that while both models face challenges with fragmented or sparse context, CodeBERT performs comparatively better in such scenarios, whereas CodeT5 excels in capturing complex vulnerability patterns. CodeT5 also demonstrates superior scalability. Furthermore, we test fine-tuned models on both in-distribution (trained) and out-of-distribution (unseen) datasets. While fine-tuning improves in-distribution performance, models struggle to generalize to unseen data, highlighting challenges in robust vulnerability detection. This study benchmarks model performance, identifies limitations in generalization, and provides actionable insights to advance automated vulnerability patching for real-world security applications.},
+booktitle = {Availability, Reliability and Security: ARES 2025 International Workshops, Ghent, Belgium, August 11–14, 2025, Proceedings, Part I},
+pages = {73--87},
+numpages = {15},
+keywords = {code patching, vulnerability patching, large language models, automated program repair},
+location = {Ghent, Belgium}
+}
+
+@article{vulsecret,
+  title={The secret life of software vulnerabilities: A large-scale empirical study},
+  author={Iannone, Emanuele and Guadagni, Roberta and Ferrucci, Filomena and De Lucia, Andrea and Palomba, Fabio},
+  journal={IEEE Transactions on Software Engineering},
+  volume={49},
+  number={1},
+  pages={44--63},
+  year={2022},
+  url={https://emaiannone.github.io/assets/pdf/j2.pdf},
+  abstract={Software vulnerabilities are weaknesses in source code that can be potentially exploited to cause loss or harm. While researchers have been devising a number of methods to deal with vulnerabilities, there is still a noticeable lack of knowledge on their software engineering life cycle, for example how vulnerabilities are introduced and removed by developers. This information can be exploited to design more effective methods for vulnerability prevention and detection, as well as to understand the granularity at which these methods should aim. To investigate the life cycle of known software vulnerabilities, we focus on how, when, and under which circumstances the contributions to the introduction of vulnerabilities in software projects are made, as well as how long, and how they are removed. We consider 3,663 vulnerabilities with public patches from the National Vulnerability Database—pertaining to 1,096 open-source software projects on GitHub—and define an eight-step process involving both automated parts (e.g., using a procedure based on the SZZ algorithm to find the vulnerability-contributing commits) and manual analyses (e.g., how vulnerabilities were fixed). The investigated vulnerabilities can be classified in 144 categories, take on average at least 4 contributing commits before being introduced, and half of them remain unfixed for at least more than one year. Most of the contributions are done by developers with high workload, often when doing maintenance activities, and removed mostly with the addition of new source code aiming at implementing further checks on inputs. We conclude by distilling practical implications on how vulnerability detectors should work to assist developers in timely identifying these issues.},
+  publisher={IEEE}
+}
+
+@inproceedings{helpfulcontext,
+author = {Antal, G\'{a}bor and Bogenf\"{u}rst, Bence and Ferenc, Rudolf and Hegedus, P\'{e}ter},
+title = {Identifying Helpful Context for LLM-based Vulnerability Repair: A Preliminary Study},
+year = {2025},
+isbn = {9798400713859},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3756681.3757078},
+doi = {10.1145/3756681.3757078},
+abstract = {Recent advancements in large language models (LLMs) have shown promise for automated vulnerability detection and repair in software systems. This paper investigates the performance of GPT-4o in repairing Java vulnerabilities from a widely used dataset (Vul4J), exploring how different contextual information affects automated vulnerability repair (AVR) capabilities. We compare the latest GPT-4o’s performance against previous results with GPT-4 using identical prompts. We evaluated nine additional prompts crafted by us that contain various contextual information such as CWE or CVE information, and manually extracted code contexts. Each prompt was executed three times on 42 vulnerabilities, and the resulting fix candidates were validated using Vul4J’s automated testing framework. Our results show that GPT-4o performed 11.9\% worse on average than GPT-4 with the same prompt, but was able to fix 10.5\% more distinct vulnerabilities in the three runs together. CVE information significantly improved repair rates, while the length of the task description had minimal impact. Combining CVE guidance with manually extracted code context resulted in the best performance. Using our Top-3 prompts together, GPT-4o repaired 26 (62\%) vulnerabilities at least once, outperforming both the original baseline (40\%) and its reproduction (45\%), suggesting that ensemble prompt strategies could improve vulnerability repair in zero-shot settings.},
+booktitle = {Proceedings of the 29th International Conference on Evaluation and Assessment in Software Engineering},
+pages = {696–700},
+numpages = {5},
+keywords = {LLM, vulnerability repair, contextual information, prompt engineering, software security, automated program repair},
+series = {EASE '25}
+}
+
+@inproceedings{jsvulrepairstudy,
+author = {Le, Tan Khang and Alimadadi, Saba and Ko, Steven Y.},
+title = {A Study of Vulnerability Repair in JavaScript Programs with Large Language Models},
+year = {2024},
+isbn = {9798400701726},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3589335.3651463},
+doi = {10.1145/3589335.3651463},
+abstract = {In recent years, JavaScript has become the most widely used programming language, especially in web development. However, writing secure JavaScript code is not trivial, and programmers often make mistakes that lead to security vulnerabilities in web applications. Large Language Models (LLMs) have demonstrated substantial advancements across multiple domains, and their evolving capabilities indicate their potential for automatic code generation based on a required specification, including automatic bug fixing. In this study, we explore the accuracy of LLMs, namely ChatGPT and Bard, in finding and fixing security vulnerabilities in JavaScript programs. We also investigate the impact of context in a prompt on directing LLMs to produce a correct patch of vulnerable JavaScript code. Our experiments on real-world software vulnerabilities show that while LLMs are promising in automatic program repair of JavaScript code, achieving a correct bug fix often requires an appropriate amount of context in the prompt.},
+booktitle = {Companion Proceedings of the ACM Web Conference 2024},
+pages = {666–669},
+numpages = {4},
+keywords = {automatic program repair, cwe, javascript, large language models, prompt engineering},
+location = {Singapore, Singapore},
+series = {WWW '24}
+}
+
+@article{asrbib,
+author = {Monperrus, Martin},
+title = {Automatic Software Repair: A Bibliography},
+year = {2018},
+issue_date = {January 2019},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {51},
+number = {1},
+issn = {0360-0300},
+url = {https://doi.org/10.1145/3105906},
+doi = {10.1145/3105906},
+journal = {ACM Comput. Surv.},
+month = jan,
+articleno = {17},
+numpages = {24},
+keywords = {Program repair, self-healing software}
+}
+
+@inproceedings{aprplm,
+  title={Automated Program Repair in the Era of Large Pre-trained Language Models},
+  url={http://dx.doi.org/10.1109/ICSE48619.2023.00129},
+  DOI={10.1109/icse48619.2023.00129},
+  booktitle={2023 IEEE/ACM 45th International Conference on Software Engineering (ICSE)},
+  publisher={IEEE},
+  author={Xia, Chunqiu Steven and Wei, Yuxiang and Zhang, Lingming},
+  year={2023},
+  month=may, 
+  pages={1482–1494} 
 }

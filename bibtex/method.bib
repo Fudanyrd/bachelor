@@ -12,6 +12,7 @@ Added by snowballing: 1
   pages={54--72},
   year={2011},
   url={https://web.eecs.umich.edu/~weimerw/p/weimer-tse2011-genprog-preprint.pdf},
+  keywords={automatic programming, testing and debugging},
   abstract={This paper describes GenProg, an automated method for repairing defects in off-the-shelf, legacy programs without formal specifications, program annotations, or special coding practices. GenProg uses an extended form of genetic programming to evolve a program variant that retains required functionality but is not susceptible to a given defect, using existing test suites to encode both the defect and required functionality. Structural differencing algorithms and delta debugging reduce the difference between this variant and the original program to a minimal repair. We describe the algorithm and report experimental results of its success on 16 programs totaling 1.25 M lines of C code and 120K lines of module code, spanning eight classes of defects, in 357 seconds, on average. We analyze the generated repairs qualitatively and quantitatively to demonstrate that the process efficiently produces evolved programs that repair the defect, are not fragile input memorizations, and do not lead to serious degradation in functionality.},
   publisher={IEEE}
 }
@@ -108,4 +109,122 @@ series = {ICSE '25}
   url={https://dl.acm.org/doi/pdf/10.1145/3293882.3330577},
   abstract={We revisit the performance of template-based APR to build comprehensive knowledge about the effectiveness of fix patterns, and to highlight the importance of complementary steps such as fault localization or donor code retrieval. To that end, we first investigate the literature to collect, summarize and label recurrently-used fix patterns. Based on the investigation, we build TBar, a straightforward APR tool that systematically attempts to apply these fix patterns to program bugs. We thoroughly evaluate TBar on the Defects4J benchmark. In particular, we assess the actual qualitative and quantitative diversity of fix patterns, as well as their effectiveness in yielding plausible or correct patches. Eventually, we find that, assuming a perfect fault localization, TBar correctly/plausibly fixes 74/101 bugs. Replicating a standard and practical pipeline of APR assessment, we demonstrate that TBar correctly fixes 43 bugs from Defects4J, an unprecedented performance in the literature},
   year={2019}
+}
+
+@inproceedings{semiautofl,
+author = {Bin Murtaza, Sardar and Mccoy, Aidan and Ren, Zhiyuan and Murphy, Aidan and Banzhaf, Wolfgang},
+title = {LLM Fault Localisation within Evolutionary Computation Based Automated Program Repair},
+year = {2024},
+isbn = {9798400704956},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3638530.3664174},
+doi = {10.1145/3638530.3664174},
+abstract = {Repairing bugs can be a daunting task for even a human experienced in debugging, so naturally, attempting to automatically repair programs with a computer system is quite challenging. The existing methods of automated program repair leave a lot of room for improvement. Fault localization, which aims to find lines of code that are potentially buggy, minimises the search space of an automated program repair system. Recent work has shown improvement in these fault localization methods, with the use of Large Language Models. Here, we propose a system where a LLM-based fault localization tool, which we call SemiAutoFL, is used within a fully automatic program repair program, ARJA-e. We show that utilising LLM-based fault localization with ARJA-e can significantly improve its performance on real world bugs. ARJA-e with SemiAutoFL can repair 10 bugs that ARJA-e was previously unable to so do. This finding adds to our understanding of how to improve fault localization and automated program repair, highlighting the potential for more efficient and accurate fault localisation methods being applied to automated program repair.},
+booktitle = {Proceedings of the Genetic and Evolutionary Computation Conference Companion},
+pages = {1824--1829},
+numpages = {6},
+keywords = {genetic improvement, fault localisation, large language models},
+location = {Melbourne, VIC, Australia},
+series = {GECCO '24 Companion}
+}
+
+@inproceedings{vuladvisor,
+author = {Zhang, Jian and Wang, Chong and Li, Anran and Wang, Wenhan and Li, Tianlin and Liu, Yang},
+title = {VulAdvisor: Natural Language Suggestion Generation for Software Vulnerability Repair},
+year = {2024},
+isbn = {9798400712487},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3691620.3695555},
+doi = {10.1145/3691620.3695555},
+abstract = {Software vulnerabilities pose serious threats to the security of modern software systems. Deep Learning-based Automated Vulnerability Repair (AVR) has gained attention as a potential solution to accelerate the remediation of vulnerabilities. However, recent studies indicate that existing AVR approaches often only generate patches, which may not align with developers' current repair practices or expectations. In this paper, we introduce VulAdvisor, an automated approach that generates natural language suggestions to guide developers or AVR tools in repairing vulnerabilities. VulAdvisor comprises two main components: oracle extraction and suggestion learning. To address the challenge of limited historical data, we propose an oracle extraction method facilitating ChatGPT to construct a comprehensive and high-quality dataset. For suggestion learning, we take the supervised fine-tuning CodeT5 model as the basis, integrating local context into Multi-Head Attention and introducing a repair action loss, to improve the relevance and meaningfulness of the generated suggestions. Extensive experiments on a large-scale dataset from real-world C/C++ projects demonstrate the effectiveness of VulAdvisor, surpassing several alternatives in terms of both lexical and semantic metrics. Moreover, we show that the generated suggestions enhance the patch generation capabilities of existing AVR tools. Human evaluations further validate the quality and utility of VulAdvisor's suggestions, confirming their potential to improve software vulnerability repair practices.},
+booktitle = {Proceedings of the 39th IEEE/ACM International Conference on Automated Software Engineering},
+pages = {1932--1944},
+numpages = {13},
+keywords = {vulnerability repair, large language models, suggestion generation, program repair},
+location = {Sacramento, CA, USA},
+series = {ASE '24}
+}
+
+@inproceedings{vulrepair,
+author = {Fu, Michael and Tantithamthavorn, Chakkrit and Le, Trung and Nguyen, Van and Phung, Dinh},
+title = {VulRepair: a T5-based automated software vulnerability repair},
+year = {2022},
+isbn = {9781450394130},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3540250.3549098},
+doi = {10.1145/3540250.3549098},
+abstract = {As software vulnerabilities grow in volume and complexity, researchers proposed various Artificial Intelligence (AI)-based approaches to help under-resourced security analysts to find, detect, and localize vulnerabilities. However, security analysts still have to spend a huge amount of effort to manually fix or repair such vulnerable functions. Recent work proposed an NMT-based Automated Vulnerability Repair, but it is still far from perfect due to various limitations. In this paper, we propose VulRepair, a T5-based automated software vulnerability repair approach that leverages the pre-training and BPE components to address various technical limitations of prior work. Through an extensive experiment with over 8,482 vulnerability fixes from 1,754 real-world software projects, we find that our VulRepair achieves a Perfect Prediction of 44\%, which is 13\%-21\% more accurate than competitive baseline approaches. These results lead us to conclude that our VulRepair is considerably more accurate than two baseline approaches, highlighting the substantial advancement of NMT-based Automated Vulnerability Repairs. Our additional investigation also shows that our VulRepair can accurately repair as many as 745 out of 1,706 real-world well-known vulnerabilities (e.g., Use After Free, Improper Input Validation, OS Command Injection), demonstrating the practicality and significance of our VulRepair for generating vulnerability repairs, helping under-resourced security analysts on fixing vulnerabilities.},
+booktitle = {Proceedings of the 30th ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+pages = {935--947},
+numpages = {13},
+keywords = {Software Vulnerability Repair},
+location = {Singapore, Singapore},
+series = {ESEC/FSE 2022}
+}
+
+@inproceedings{coconut,
+author = {Lutellier, Thibaud and Pham, Hung Viet and Pang, Lawrence and Li, Yitong and Wei, Moshi and Tan, Lin},
+title = {CoCoNuT: combining context-aware neural translation models using ensemble for program repair},
+year = {2020},
+isbn = {9781450380089},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3395363.3397369},
+doi = {10.1145/3395363.3397369},
+abstract = {Automated generate-and-validate (GV) program repair techniques (APR) typically rely on hard-coded rules, thus only fixing bugs following specific fix patterns. These rules require a significant amount of manual effort to discover and it is hard to adapt these rules to different programming languages. To address these challenges, we propose a new G&V technique—CoCoNuT, which uses ensemble learning on the combination of convolutional neural networks (CNNs) and a new context-aware neural machine translation (NMT) architecture to automatically fix bugs in multiple programming languages. To better represent the context of a bug, we introduce a new context-aware NMT architecture that represents the buggy source code and its surrounding context separately. CoCoNuT uses CNNs instead of recurrent neural networks (RNNs), since CNN layers can be stacked to extract hierarchical features and better model source code at different granularity levels (e.g., statements and functions). In addition, CoCoNuT takes advantage of the randomness in hyperparameter tuning to build multiple models that fix different bugs and combines these models using ensemble learning to fix more bugs. Our evaluation on six popular benchmarks for four programming languages (Java, C, Python, and JavaScript) shows that CoCoNuT correctly fixes (i.e., the first generated patch is semantically equivalent to the developer’s patch) 509 bugs, including 309 bugs that are fixed by none of the 27 techniques with which we compare.},
+booktitle = {Proceedings of the 29th ACM SIGSOFT International Symposium on Software Testing and Analysis},
+pages = {101--114},
+numpages = {14},
+keywords = {Neural Machine Translation, Deep Learning, Automated program repair, AI and Software Engineering},
+location = {Virtual Event, USA},
+series = {ISSTA 2020}
+}
+
+@misc{vulrag,
+  title={Vul-RAG: Enhancing LLM-based Vulnerability Detection via Knowledge-level RAG}, 
+  author={Xueying Du and Geng Zheng and Kaixin Wang and Yi Zou and Yujia Wang and Wentai Deng and Jiayi Feng and Mingwei Liu and Bihuan Chen and Xin Peng and Tao Ma and Yiling Lou},
+  year={2025},
+  eprint={2406.11147},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE},
+  url={https://arxiv.org/abs/2406.11147}, 
+}
+
+@inproceedings{trap,
+author = {Liu, Pei and Lin, Bo and Qin, Yihao and Weng, Cheng and Chen, Liqian},
+title = {T-RAP: A Template-guided Retrieval-Augmented Vulnerability Patch Generation Approach},
+year = {2024},
+isbn = {9798400707056},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3671016.3672506},
+doi = {10.1145/3671016.3672506},
+abstract = {Vulnerabilities exert great burden on developers in terms of debugging and maintenance. Automated Vulnerability Repair(AVR) is considered as a promising approach to alleviate the burden of developers. Template-based automated program repair techniques have shown their effectiveness in fixing general bugs. However, due to the diverse root causes of vulnerabilities, it is challenging to construct sufficient repair templates to cover various vulnerabilities. In this paper, we introduce a Template-guided Retrieval-Augmented Patch generation approach, named T-RAP. Inspired by retrieval-augmented techniques that effectively utilize historical data, our approach leverages repair templates to extract similar vulnerability repair patches from the codebase. These patches then guide the process of generating vulnerability patches. To extract similar patches, we also propose a matching algorithm specifically designed for the retrieval-augmented vulnerability repair. This involves identifying similarities between numerous templates and vulnerabilities during the template-guided stage. Experimental results demonstrate that T-RAP outperforms all the studied AVR approaches, repairing 56.8\% more vulnerabilities than VulRepair and 30.24\% more than VulMaster. It can also accurately repair more types of real-world vulnerabilities than VulMaster. Additionally, we evaluated the effectiveness of our patch retriever. The results indicate that our template-guided retriever, which is based on our matching algorithm, outperforms the retrieval algorithm proposed in the recent retrieval-augmented patch generation approach RAP-Gen.},
+booktitle = {Proceedings of the 15th Asia-Pacific Symposium on Internetware},
+pages = {105--114},
+numpages = {10},
+keywords = {Automated Vulnerability Repair, Deep Learning, Repair Template, Software Vulnerability},
+location = {Macau, China},
+series = {Internetware '24}
+}
+
+@inproceedings{promptvuldet,
+author = {Zhang, Chenyuan and Liu, Hao and Zeng, Jiutian and Yang, Kejing and Li, Yuhong and Li, Hui},
+title = {Prompt-Enhanced Software Vulnerability Detection Using ChatGPT},
+year = {2024},
+isbn = {9798400705021},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3639478.3643065},
+doi = {10.1145/3639478.3643065},
+abstract = {With the increase in software vulnerabilities that cause significant economic and social losses, automatic vulnerability detection has become essential in software development and maintenance. Recently, large language models (LLMs) have received considerable attention due to their stunning intelligence, and some studies consider using ChatGPT for vulnerability detection. However, they do not fully consider the characteristics of LLMs, since their designed questions to ChatGPT are simple without a prompt design tailored for vulnerability detection. This paper launches a study on the performance of software vulnerability detection using ChatGPT with different prompt designs. Firstly, we complement previous work by applying various improvements to the basic prompt. Moreover, we incorporate structural and sequential auxiliary information to improve the prompt design. Moreover, we leverage ChatGPT's ability of memorizing multi-round dialogue to design suitable prompts for vulnerability detection. We conduct extensive experiments on two vulnerability datasets to demonstrate the effectiveness of prompt-enhanced vulnerability detection using ChatGPT.},
+booktitle = {Proceedings of the 2024 IEEE/ACM 46th International Conference on Software Engineering: Companion Proceedings},
+pages = {276--277},
+numpages = {2},
+keywords = {software vulnerability detection, prompt engineering, large language model, chatgpt},
+location = {Lisbon, Portugal},
+series = {ICSE-Companion '24}
 }

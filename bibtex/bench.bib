@@ -73,7 +73,7 @@ developers for client and server side programming. The lan guage, however, still
 }
 
 @inproceedings{cvedataset,
-  title={AC/C++ code vulnerability dataset with code changes and CVE summaries},
+  title={A C/C++ code vulnerability dataset with code changes and CVE summaries},
   author={Fan, Jiahao and Li, Yi and Wang, Shaohua and Nguyen, Tien N},
   booktitle={Proceedings of the 17th international conference on mining software repositories},
   pages={508--512},
@@ -109,4 +109,40 @@ In this project, inspired by Defects4J, we create another benchmark database and
   keywords={Analytical models;Codes;Accuracy;Computer bugs;Maintenance engineering;Benchmark testing;Task analysis;Large language models;automatic program repair;repository-level bugs;context;static analysis},
   doi={10.1145/3639478.3647633},
   abstract={In recent years, large language models (LLMs) have demonstrated substantial potential in addressing automatic program repair (APR) tasks. However, the current evaluation of these models for APR tasks focuses solely on the limited context of the single function or file where the bug is located, overlooking the valuable information in the repository-level context. This paper investigates the performance of popular LLMs in handling repository-level repair tasks. We introduce RepoBugs, a new benchmark comprising 124 typical repository-level bugs from open-source repositories. Preliminary experiments using GPT3.5 based on the function where the error is located, reveal that the repair rate on RepoBugs is only 22.58%, significantly diverging from the performance of GPT3.5 on function-level bugs in related studies. This underscores the importance of providing repository-level context when addressing bugs at this level. However, the repository-level context offered by the preliminary method often proves redundant and imprecise and easily exceeds the prompt length limit of LLMs. To solve the problem, we propose a simple and universal repository-level context extraction method (RLCE) designed to provide more precise context for repository-level code repair tasks. Evaluations of three mainstream LLMs show that RLCE significantly enhances the ability to repair repository-level bugs. The improvement reaches a maximum of 160% compared to the preliminary method. Additionally, we conduct a comprehensive analysis of the effectiveness and limitations of RLCE, along with the capacity of LLMs to address repository-level bugs, offering valuable insights for future research.},
+}
+
+@inproceedings{megavul,
+author = {Ni, Chao and Shen, Liyu and Yang, Xiaohu and Zhu, Yan and Wang, Shaohua},
+title = {MegaVul: A C/C++ Vulnerability Dataset with Comprehensive Code Representations},
+year = {2024},
+isbn = {9798400705878},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3643991.3644886},
+doi = {10.1145/3643991.3644886},
+abstract = {We constructed a newly large-scale and comprehensive C/C++ vulnerability dataset named MegaVul by crawling the Common Vulnerabilities and Exposures (CVE) database and CVE-related open-source projects. Specifically, we collected all crawlable descriptive information of the vulnerabilities from the CVE database and extracted all vulnerability-related code changes from 28 Git-based websites. We adopt advanced tools to ensure the extracted code integrality and enrich the code with four different transformed representations. Totally, MegaVul contains 17,380 vulnerabilities collected from 992 open-source repositories spanning 169 different vulnerability types disclosed from January 2006 to October 2023. Thus, MegaVul can be used for a variety of software security-related tasks including detecting vulnerabilities and assessing vulnerability severity. All information is stored in the JSON format for easy usage. MegaVul is publicly available on GitHub and will be continuously updated. It can be easily extended to other programming languages.},
+booktitle = {Proceedings of the 21st International Conference on Mining Software Repositories},
+pages = {738–742},
+numpages = {5},
+keywords = {common vulnerabilities and exposures, C/C++ code, code representation},
+location = {Lisbon, Portugal},
+series = {MSR '24}
+}
+
+@inproceedings{vul4j,
+author = {Bui, Quang-Cuong and Scandariato, Riccardo and Ferreyra, Nicol\'{a}s E. D\'{\i}az},
+title = {Vul4J: a dataset of reproducible Java vulnerabilities geared towards the study of program repair techniques},
+year = {2022},
+isbn = {9781450393034},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3524842.3528482},
+doi = {10.1145/3524842.3528482},
+abstract = {In this work we present Vul4J, a Java vulnerability dataset where each vulnerability is associated to a patch and, most importantly, to a Proof of Vulnerability (PoV) test case. We analyzed 1803 fix commits from 912 real-world vulnerabilities in the Project KB knowledge base to extract the reproducible vulnerabilities, i.e., vulnerabilities that can be triggered by one or more PoV test cases. To this aim, we ran the test suite of the application in both, the vulnerable and secure versions, to identify the corresponding PoVs. Furthermore, if no PoV test case was spotted, then we wrote it ourselves. As a result, Vul4J includes 79 reproducible vulnerabilities from 51 open-source projects, spanning 25 different Common Weakness Enumeration (CWE) types. To the extent of our knowledge, this is the first dataset of its kind created for Java. Particularly, it targets the study of Automated Program Repair (APR) tools, where PoVs are often necessary in order to identify plausible patches. We made our dataset and related tools publically available on GitHub.},
+booktitle = {Proceedings of the 19th International Conference on Mining Software Repositories},
+pages = {464–468},
+numpages = {5},
+keywords = {vulnerability, program repair, java},
+location = {Pittsburgh, Pennsylvania},
+series = {MSR '22}
 }
