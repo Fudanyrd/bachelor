@@ -360,3 +360,53 @@ keywords = {benchmark, code repair, in-context learning, retrieval augmented},
 location = {Seoul, Republic of Korea},
 series = {CIKM '25}
 }
+
+@article{divellm4bugrepair,
+author = {Hossain, Soneya Binta and Jiang, Nan and Zhou, Qiang and Li, Xiaopeng and Chiang, Wen-Hao and Lyu, Yingjun and Nguyen, Hoan and Tripp, Omer},
+title = {A Deep Dive into Large Language Models for Automated Bug Localization and Repair},
+year = {2024},
+issue_date = {July 2024},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {1},
+number = {FSE},
+url = {https://doi.org/10.1145/3660773},
+doi = {10.1145/3660773},
+abstract = {Large language models (LLMs) have shown impressive effectiveness in various software engineering tasks, including automated program repair (APR). In this study, we take a deep dive into automated bug localization and repair utilizing LLMs. In contrast to many deep learning-based APR methods that assume known bug locations, rely on line-level localization tools, or address bug prediction and fixing in one step, our approach uniquely employs LLMs to predict bug location at the token level and subsequently utilizes them for bug fixing. This methodological separation of bug localization and fixing using different LLMs enables effective integration of diverse contextual information and improved incorporation of inductive biases. We introduce Toggle: Token-Granulated Bug Localization and Repair, a comprehensive program repair framework that integrates a bug localization model, an adjustment model to address tokenizer inconsistencies, and a bug-fixing model. Toggle takes a buggy function as input and generates a complete corrected function. We investigate various styles of prompting to the bug fixing model to identify the most effective prompts that better utilize the inductive bias and significantly outperform others. Toggle achieves the new state-of-the-art performance on the CodeXGLUE code refinement benchmark, and exhibits better and comparable performance on several other widely-used APR datasets, including Defects4J. In the Defects4J benchmark, our approach consistently ranks above other methods, achieving superior results in the Top-10, Top-30, Top-50, and Top-100 metrics. Besides examining Toggle’s generalizability to unseen data, evaluating the effectiveness of various prompts, we also investigate the impact of additional contextual information such as buggy lines and code comments on bug localization, and explore the importance of the adjustment model. Our extensive experiments offer valuable insights and answers to critical research questions.},
+journal = {Proc. ACM Softw. Eng.},
+month = jul,
+articleno = {66},
+numpages = {23},
+keywords = {Software and its engineering, Software testing and debugging, Automated Bug Localization and Fix, Large Language Models}
+}
+
+@inproceedings{patchcorrectness,
+author = {Xiong, Yingfei and Liu, Xinyuan and Zeng, Muhan and Zhang, Lu and Huang, Gang},
+title = {Identifying patch correctness in test-based program repair},
+year = {2018},
+isbn = {9781450356381},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3180155.3180182},
+doi = {10.1145/3180155.3180182},
+abstract = {Test-based automatic program repair has attracted a lot of attention in recent years. However, the test suites in practice are often too weak to guarantee correctness and existing approaches often generate a large number of incorrect patches.To reduce the number of incorrect patches generated, we propose a novel approach that heuristically determines the correctness of the generated patches. The core idea is to exploit the behavior similarity of test case executions. The passing tests on original and patched programs are likely to behave similarly while the failing tests on original and patched programs are likely to behave differently. Also, if two tests exhibit similar runtime behavior, the two tests are likely to have the same test results. Based on these observations, we generate new test inputs to enhance the test suites and use their behavior similarity to determine patch correctness.Our approach is evaluated on a dataset consisting of 139 patches generated from existing program repair systems including jGen-Prog, Nopol, jKali, ACS and HDRepair. Our approach successfully prevented 56.3\% of the incorrect patches to be generated, without blocking any correct patches.},
+booktitle = {Proceedings of the 40th International Conference on Software Engineering},
+pages = {789–799},
+numpages = {11},
+location = {Gothenburg, Sweden},
+series = {ICSE '18}
+}
+
+@article{repairllama,
+  title={RepairLLaMA: Efficient Representations and Fine-Tuned Adapters for Program Repair},
+  volume={51},
+  ISSN={2326-3881},
+  url={http://dx.doi.org/10.1109/TSE.2025.3581062},
+  DOI={10.1109/tse.2025.3581062},
+  number={8},
+  journal={IEEE Transactions on Software Engineering},
+  publisher={Institute of Electrical and Electronics Engineers (IEEE)},
+  author={Silva, André and Fang, Sen and Monperrus, Martin},
+  year={2025},
+  month=aug, pages={2366–2380}
+}

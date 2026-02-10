@@ -1,6 +1,6 @@
 @comment{
 benchmarks and datasets for Automated Program Repair
-Added by snowballing: all
+Added by snowballing: all (except gitbugactions, defects4ds, and megavul)
 }
 
 @inproceedings{defects4j,
@@ -146,3 +146,85 @@ keywords = {vulnerability, program repair, java},
 location = {Pittsburgh, Pennsylvania},
 series = {MSR '22}
 }
+
+@inproceedings{gitbugactions,
+author = {Saavedra, Nuno and Silva, Andr\'{e} and Monperrus, Martin},
+title = {GitBug-Actions: Building Reproducible Bug-Fix Benchmarks with GitHub Actions},
+year = {2024},
+isbn = {9798400705021},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3639478.3640023},
+doi = {10.1145/3639478.3640023},
+abstract = {Bug-fix benchmarks are fundamental in advancing various sub-fields of software engineering such as automatic program repair (APR) and fault localization (FL). A good benchmark must include recent examples that accurately reflect technologies and development practices of today. To be executable in the long term, a benchmark must feature test suites that do not degrade overtime due to, for example, dependencies that are no longer available. Existing benchmarks fail in meeting both criteria. For instance, Defects4J, one of the foremost Java benchmarks, last received an update in 2020. Moreover, full-reproducibility has been neglected by the majority of existing benchmarks. In this paper, we present GitBug-Actions: a novel tool for building bug-fix benchmarks with modern and fully-reproducible bug-fixes. GitBug-Actions relies on the most popular CI platform, GitHub Actions, to detect bug-fixes and smartly locally execute the CI pipeline in a controlled and reproducible environment. To the best of our knowledge, we are the first to rely on GitHub Actions to collect bug-fixes. To demonstrate our toolchain, we deploy GitBug-Actions to build a proof-of-concept Go bug-fix benchmark containing executable, fully-reproducible bug-fixes from different repositories. A video demonstrating GitBug-Actions is available at: https://youtu.be/aBWwa1sJYBs.},
+booktitle = {Proceedings of the 2024 IEEE/ACM 46th International Conference on Software Engineering: Companion Proceedings},
+pages = {1–5},
+numpages = {5},
+keywords = {software bugs, bug benchmark, bug database, reproducibility, software testing, program analysis, github actions},
+location = {Lisbon, Portugal},
+series = {ICSE-Companion '24}
+}
+
+@article{defects4ds,
+author = {Zhao, Qianhui and Zhang, Li and Liu, Fang and Liu, Yang and Yan, Zhen and Chen, Zhenghao and Zhou, Yufei and Jiang, Jing and Li, Ge and Sun, Zian and Li, Zhongqi and Ma, Yuchi},
+title = {Peer-aided repairer: empowering large language models to repair advanced student assignments},
+year = {2025},
+issue_date = {Dec 2025},
+publisher = {Kluwer Academic Publishers},
+address = {USA},
+volume = {31},
+number = {2},
+issn = {1382-3256},
+url = {https://doi.org/10.1007/s10664-025-10716-z},
+doi = {10.1007/s10664-025-10716-z},
+abstract = {Automated generation of feedback on programming assignments holds significant benefits for programming education, especially when it comes to advanced assignments. Automated Program Repair techniques, especially Large Language Model-based approaches, have gained notable recognition for their potential in fixing introductory assignments. However, the programs used for evaluation are relatively simple. It remains unclear how existing approaches perform in repairing programs from higher-level programming courses. To address these limitations, we curate a new advanced student assignment dataset named Defects4DS from a higher-level programming course. Subsequently, we identify the challenges related to fixing bugs in advanced assignments. Based on the analysis, we develop a framework called PaR that is powered by the Large Language Models. PaR works in three phases: Peer Solution Selection, Multi-Source Prompt Generation, and Program Repair. Peer Solution Selection identifies the closely related peer programs based on lexical, semantic, and syntactic criteria. Then Multi-Source Prompt Generation adeptly combines multiple sources of information to create a comprehensive and informative prompt for the last Program Repair stage. Evaluation reveals that PaR achieves state-of-the-art performance on Defects4DS compared to baseline approaches, with the impressive improvement of 16.13\% in repair rate. And experimental results on several introductory programming assignment datasets further demonstrate the effectiveness of PaR, achieving state-of-the-art results on ITSP and IntroClass datasets.},
+journal = {Empirical Softw. Engg.},
+month = dec,
+numpages = {49},
+keywords = {Programming education, Program repair, Large language models, Software engineering}
+}
+
+@INPROCEEDINGS{precisebugcollector,
+  author={He, Ye and Chen, Zimin and Le Goues, Claire},
+  booktitle={2023 38th IEEE/ACM International Conference on Automated Software Engineering (ASE)}, 
+  title={PreciseBugCollector: Extensible, Executable and Precise Bug-Fix Collection: Solution for Challenge 8: Automating Precise Data Collection for Code Snippets with Bugs, Fixes, Locations, and Types}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1899-1910},
+  keywords={Industries;Deep learning;Training;Location awareness;Software maintenance;Computer bugs;Manuals;Bug datasets;Program repair;Software testing and debugging},
+  doi={10.1109/ASE56229.2023.00163}
+}
+
+@inproceedings{silva2024gitbug,
+  title={Gitbug-java: A reproducible benchmark of recent java bugs},
+  author={Silva, Andr{\'e} and Saavedra, Nuno and Monperrus, Martin},
+  booktitle={Proceedings of the 21st International Conference on Mining Software Repositories},
+  pages={118--122},
+  url={https://dl.acm.org/doi/pdf/10.1145/3643991.3644884},
+  year={2024}
+}
+
+@inproceedings{codeflaws,
+  author={Shin Hwei Tan and Jooyong Yi and Yulis and Mechtaev, Sergey and Roychoudhury, Abhik},
+  booktitle={2017 IEEE/ACM 39th International Conference on Software Engineering Companion (ICSE-C)}, 
+  title={Codeflaws: a programming competition benchmark for evaluating automated program repair tools}, 
+  year={2017},
+  volume={},
+  number={},
+  pages={180-182},
+  keywords={Maintenance engineering;Tools;Benchmark testing;Software engineering;Programming;Software;Conferences;automated program repair;defect classes;empirical evaluation;benchmark},
+  url={https://ieeexplore.ieee.org/document/7965296},
+  doi={10.1109/ICSE-C.2017.76}
+}
+
+@misc{xlcost,
+  title={XLCoST: A Benchmark Dataset for Cross-lingual Code Intelligence}, 
+  author={Ming Zhu and Aneesh Jain and Karthik Suresh and Roshan Ravindran and Sindhu Tipirneni and Chandan K. Reddy},
+  year={2022},
+  eprint={2206.08474},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE},
+  url={https://arxiv.org/abs/2206.08474}, 
+}
+
