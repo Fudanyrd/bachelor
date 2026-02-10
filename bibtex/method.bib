@@ -410,3 +410,90 @@ series = {ICSE '18}
   year={2025},
   month=aug, pages={2366–2380}
 }
+
+@inproceedings{llm4apr,
+author = {Ribeiro, Francisco},
+title = {Large Language Models for Automated Program Repair},
+year = {2023},
+isbn = {9798400703843},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3618305.3623587},
+doi = {10.1145/3618305.3623587},
+abstract = {This paper introduces two methods for automated program repair (APR) utilizing pre-trained language models. The first method demonstrates program repair as a code completion task and is validated on a dataset of Java programs. The second method, Mentat, leverages OCaml’s parser and type system as fault localization techniques to generate prompts for GPT-3, producing candidate patches. Evaluation results show promising repair rates, with 27\% and 39.2\% effectiveness, respectively. For OCaml, a comparative study employing an automated validation strategy is presented in which the technique outperforms other tools. Language models are effective at APR, enhancing bug fixing and freeing developers to focus on other critical aspects of software engineering.},
+booktitle = {Companion Proceedings of the 2023 ACM SIGPLAN International Conference on Systems, Programming, Languages, and Applications: Software for Humanity},
+pages = {7–9},
+numpages = {3},
+keywords = {type systems, fault localization, code generation, automated program repair},
+location = {Cascais, Portugal},
+series = {SPLASH 2023}
+}
+
+@inproceedings{rapgen,
+author = {Wang, Weishi and Wang, Yue and Joty, Shafiq and Hoi, Steven C.H.},
+title = {RAP-Gen: Retrieval-Augmented Patch Generation with CodeT5 for Automatic Program Repair},
+year = {2023},
+isbn = {9798400703270},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3611643.3616256},
+doi = {10.1145/3611643.3616256},
+abstract = {Automatic program repair (APR) is crucial to reduce manual debugging efforts for developers and improve software reliability. While conventional search-based techniques typically rely on heuristic rules or a redundancy assumption to mine fix patterns, recent years have witnessed the surge of deep learning (DL) based approaches to automate the program repair process in a data-driven manner. However, their performance is often limited by a fixed set of parameters to model the highly complex search space of APR. To ease such burden on the parametric models, in this work, we propose a novel Retrieval-Augmented Patch Generation framework (RAP-Gen) by explicitly leveraging relevant fix patterns retrieved from a codebase of previous bug-fix pairs. Specifically, we build a hybrid patch retriever to account for both lexical and semantic matching based on the raw source code in a language-agnostic manner, which does not rely on any code-specific features. In addition, we adapt a code-aware language model CodeT5 as our foundation model to facilitate both patch retrieval and generation tasks in a unified manner. We adopt a stage-wise approach where the patch retriever first retrieves a relevant external bug-fix pair to augment the buggy input for the CodeT5 patch generator, which synthesizes a ranked list of repair patch candidates. Notably, RAP-Gen is a generic APR framework that can flexibly integrate different patch retrievers and generators to repair various types of bugs. We thoroughly evaluate RAP-Gen on three benchmarks in two programming languages, including the TFix benchmark in JavaScript, and Code Refinement and Defects4J benchmarks in Java, where the bug localization information may or may not be provided. Experimental results show that RAP-Gen significantly outperforms previous state-of-the-art (SoTA) approaches on all benchmarks, e.g., boosting the accuracy of T5-large on TFix from 49.70\% to 54.15\% (repairing 478 more bugs) and repairing 15 more bugs on 818 Defects4J bugs. Further analysis reveals that our patch retriever can search for relevant fix patterns to guide the APR systems.},
+booktitle = {Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+pages = {146–158},
+numpages = {13},
+keywords = {Automated program repair, Neural networks, Pretrained language models, Retrieval-augmented generation},
+location = {San Francisco, CA, USA},
+series = {ESEC/FSE 2023}
+}
+
+@inproceedings{codet5,
+  title = "CodeT5: Identifier-aware Unified Pre-trained Encoder-Decoder Models for Code Understanding and Generation",
+  author = {Wang, Yue  and     Wang Weishi  and     Joty Shafiq  and     Hoi Steven C.H.},
+  editor = {Moens Marie-Francine  and     Huang Xuanjing  and     Specia Lucia  and     Yih Scott Wen-tau},
+  booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+  month = nov,
+  year = "2021",
+  address = "Online and Punta Cana, Dominican Republic",
+  publisher = "Association for Computational Linguistics",
+  url = "https://aclanthology.org/2021.emnlp-main.685/",
+  doi = "10.18653/v1/2021.emnlp-main.685",
+  pages = "8696--8708",
+  abstract = "Pre-trained models for Natural Languages (NL) like BERT and GPT have been recently shown to transfer well to Programming Languages (PL) and largely benefit a broad set of code-related tasks. Despite their success, most current methods either rely on an encoder-only (or decoder-only) pre-training that is suboptimal for generation (resp. understanding) tasks or process the code snippet in the same way as NL, neglecting the special characteristics of PL such as token types. We present CodeT5, a unified pre-trained encoder-decoder Transformer model that better leverages the code semantics conveyed from the developer-assigned identifiers. Our model employs a unified framework to seamlessly support both code understanding and generation tasks and allows for multi-task learning. Besides, we propose a novel identifier-aware pre-training task that enables the model to distinguish which code tokens are identifiers and to recover them when they are masked. Furthermore, we propose to exploit the user-written code comments with a bimodal dual generation task for better NL-PL alignment. Comprehensive experiments show that CodeT5 significantly outperforms prior methods on understanding tasks such as code defect detection and clone detection, and generation tasks across various directions including PL-NL, NL-PL, and PL-PL. Further analysis reveals that our model can better capture semantic information from code. Our code and pre-trained models are released at \url{https://github.com/salesforce/CodeT5}."
+}
+
+@inproceedings{inferfix,
+author = {Jin, Matthew and Shahriar, Syed and Tufano, Michele and Shi, Xin and Lu, Shuai and Sundaresan, Neel and Svyatkovskiy, Alexey},
+title = {InferFix: End-to-End Program Repair with LLMs},
+year = {2023},
+isbn = {9798400703270},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3611643.3613892},
+doi = {10.1145/3611643.3613892},
+abstract = {Software development life cycle is profoundly influenced by bugs; their introduction, identification, and eventual resolution account for a significant portion of software development cost. This has motivated software engineering researchers and practitioners to propose different approaches for automating the identification and repair of software defects. Large Language Models (LLMs) have been adapted to the program repair task through few-shot demonstration learning and instruction prompting, treating this as an infilling task. However, these models have only focused on learning general bug-fixing patterns for uncategorized bugs mined from public repositories. In this paper, we propose : a transformer-based program repair framework paired with a state-of-the-art static analyzer to fix critical security and performance bugs.  combines a Retriever – transformer encoder model pretrained via contrastive learning objective, which aims at searching for semantically equivalent bugs and corresponding fixes; and a Generator – an LLM (12 billion parameter Codex Cushman model) finetuned on supervised bug-fix data with prompts augmented via adding bug type annotations and semantically similar fixes retrieved from an external non-parametric memory. To train and evaluate our approach, we curated , a novel, metadata-rich dataset of bugs extracted by executing the Infer static analyzer on the change histories of thousands of Java and C# repositories. Our evaluation demonstrates that  outperforms strong LLM baselines, with a top-1 accuracy of 65.6\% for generating fixes in C# and 76.8\% in Java. We discuss the deployment of alongside Infer at Microsoft which offers an end-to-end solution for detection, classification, and localization of bugs, as well as fixing and validation of candidate patches, integrated in the continuous integration (CI) pipeline to automate the software development workflow.},
+booktitle = {Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+pages = {1646–1656},
+numpages = {11},
+keywords = {Program repair, finetuning, prompt augmentation, static analyses},
+location = {San Francisco, CA, USA},
+series = {ESEC/FSE 2023}
+}
+
+@inproceedings{prompt4vulrepair,
+author = {Luo, Yining and Li, Baobao and Singhal, Anoop and Tseng, Peiyu and Zhang, Lan and Zou, Qingtian and Sun, Xiaoyan and Liu, Peng},
+title = {Exploring Prompt Patterns for Effective Vulnerability Repair in Real-World Code by Large Language Models},
+year = {2025},
+isbn = {9798400715013},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3716815.3729010},
+doi = {10.1145/3716815.3729010},
+abstract = {Large Language Models (LLMs) have shown promise in automating code vulnerability repair, but their effectiveness in handling real-world code remains limited. This paper investigates the capability of LLMs,  in repairing vulnerabilities and proposes a systematic approach to enhance their performance through specialized prompt engineering. Through extensive evaluation of 5,826 code samples, we found that while LLMs successfully repair vulnerabilities in simple cases, they struggle with complex real-world code that involves intricate dependencies, contextual requirements, and multi-file interactions. To address these limitations, we first incorporated Control Flow Graphs (CFGs) as supplementary prompts, achieving a 14.4\% success rate in fixing previously unresolvable vulnerabilities. Through analysis of repair failures, we identified three primary challenge categories and developed corresponding prompt patterns incorporating techniques such as granular contextual information provision and progressive code simplification. Evaluation on real-world projects demonstrated that our approach significantly improved LLMs' repair capabilities, achieving over 85\% success rates across all identified challenge categories. Our findings suggest that while LLMs have inherent limitations in handling complex vulnerabilities independently, they can become effective tools for automated vulnerability repair when guided by carefully crafted prompts.},
+booktitle = {Proceedings of the 10th ACM International Workshop on Security and Privacy Analytics},
+pages = {23–33},
+numpages = {11},
+keywords = {large language models, program repair, deep learning},
+location = {Pittsburgh, PA, USA},
+series = {IWSPA '25}
+}
