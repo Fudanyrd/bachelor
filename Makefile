@@ -1,6 +1,6 @@
 default: main.pdf
 
-TEXSRC = main.tex Makefile related-work.tex
+TEXSRC = main.tex Makefile related-work.tex intro.tex
 BIBSRC = bibtex/*.bib
 TEXFLAGS = --halt-on-error
 
