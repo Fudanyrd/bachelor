@@ -58,8 +58,9 @@
 %^C^C Stop here. do not talk about limitations of LLM-driven APR.
 
 %^C^C Narrow down;
-%^C^C What about automated debugging of memory errors? 
+%^C^C What about automated repairment of memory bugs?
 %^C^C existing works, challenges (why difficult), etc.
+%^C^C How does LLM-driven APR tools perform?
 % \par\texttt{C} and \texttt{C++} are popular system programming languages 
 % which do not check memory accesses during execution, causing
 % memory bugs to slip in. Memory bugs, such as stack/heap overflow,
@@ -74,9 +75,26 @@
 % Nevertheless, these tools require instrumentation at compile time and
 % slow down program execution by more than 3x, limiting their
 % applications during debugging or testing.
-% Large language models have been employed to both localize 
-% and repair memory bugs in \texttt{C} and \texttt{C++} programs. 
-% TODO
+% Large language models have been employed to repair 
+% memory bugs and consequent CVEs in \texttt{C} and \texttt{C++} programs. 
+% Through preliminary literature review, we found that existing works
+% addressing automated vulnerability repairment, including 
+% VulRepair \citep{vulrepair}, VulAdvisor \citep{vuladvisor}, 
+% VulMaster \citep{vulmaster},
+% and Enhanced automated code vulnerability repair \citep{vulrepairusingllm}
+% requires the computation-intense task of fine-tuning the 
+% backbone language model. Luo et al. integrated Control Flow Graph
+% information into their prompt, enabling code LMs to fix 
+% vulnerabilities in real-world code \citep{prompt4vulrepair}.
+% These works set the basis of automated program repair 
+% \textit{when the root-cause of the bug is known}
+% (i.e. the vulnerability type is known, and the vulnerable code is localized).
+% To our knowledge, this is the first work to try to automate
+% memory access bug localization at a repository
+% granularity, which is neglected by previous research on vulnerability repair
+% but can potentially free developers from the
+% tedious workflow of reviewing bug reports, reproducing memory errors
+% and fix bugs.
 
 %^C^C Problem formulation (TO BE DETERMINED, NEED LITERATURE REVIEW).
 % \paragraph{Problem Formulation} Given a \texttt{C,C++} 
@@ -84,8 +102,23 @@
 % and stack trace when program \textbf{crashed}
 % \footnote{Including function name and line number}, can we
 % utilize coding LLMs or agentic systems to automate bug localization
-% and resolution, without any additional information 
-% from address sanitizer or similar memory bug detectors?
+% and resolution, assuming the following experimental constraints?
+
+% \begin{itemize}
+%     \item Without any additional information 
+%      from address sanitizer or similar memory bug detectors.
+%     Because of high runtime overhead of these sanitizers,
+%     they are not likely to be included in the release
+% 	  version of the buggy application.
+
+%    \item Without finetuning existing models or train 
+% 	  new language models, i.e. only prompting 
+%     published code LM.
+%     This is needed to overcome 
+% 	  the high computation cost of existing vnulreability 
+%     repairment tools.
+% \end{itemize}
+
 % We believe this scenario is realistic enough for today's
 % mobile-application developers who spend a considerable 
 % amount of time reviewing bug reports from end-users
