@@ -17,6 +17,17 @@ Added by snowballing: 4
   publisher={IEEE}
 }
 
+@misc{du2025exploringlargelanguagemodels,
+  title={Exploring Large Language Models in Resolving Environment-Related Crash Bugs: Localizing and Repairing}, 
+  author={Xueying Du and Mingwei Liu and Hanlin Wang and Juntao Li and Xin Peng and Yiling Lou},
+  year={2025},
+  eprint={2312.10448},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE},
+  abstract={Software crash bugs cause unexpected program behaviors or even abrupt termination, thus demanding immediate resolution. However, resolving crash bugs can be challenging due to their complex root causes, which can originate from issues in the source code or external factors like third-party library dependencies. Large language models (LLMs) have shown promise in software engineering tasks. However, existing research predominantly focuses on the capability of LLMs to localize and repair code-related crash bugs, leaving their effectiveness in resolving environment-related crash bugs in real-world software unexplored. To fill this gap, we conducted the first comprehensive study to assess the capability of LLMs in resolving real-world environment-related crash bugs. We first systematically compare LLMs' performance in resolving code-related and environment-related crash bugs with varying levels of crash contextual information. Our findings reveal that localization is the primary challenge for resolving code-related crashes, while repair poses a greater challenge for environment-related crashes. Furthermore, we investigate the impact of different prompt strategies on improving the resolution of environment-related crash bugs, incorporating different prompt templates and multi-round interactions. Building on this, we further explore an advanced active inquiry prompting strategy leveraging the self-planning capabilities of LLMs. Based on these explorations, we propose IntDiagSolver, an interactive methodology designed to enable precise crash bug resolution through ongoing engagement with LLMs. Extensive evaluations of IntDiagSolver across multiple LLMs (including GPT-3.5, GPT-4, Claude, CodeLlama, DeepSeek-R1, and Qwen-3-Coder) demonstrate consistent improvements in resolution accuracy, with substantial enhancements ranging from 9.1% to 43.3% in localization and 9.1% to 53.3% in repair.},
+  url={https://arxiv.org/abs/2312.10448}, 
+}
+
 @inproceedings{securemind,
 author = {Wang, Huanting and Jacob, Dejice and Kelly, David and Elkhatib, Yehia and Singer, Jeremy and Wang, Zheng},
 title = {SecureMind: A Framework for Benchmarking Large Language Models in Memory Bug Detection and Repair},

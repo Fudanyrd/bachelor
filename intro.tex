@@ -19,6 +19,15 @@
 % rich domain-specific knowledge, have been employed be engineers and
 % researchers to automate workflows across various domains.
 
+\par 算力的增长, 先进的机器学习模型\citep{attention}, 以及对大规模数据的访问,
+促成了\textbf{大语言模型}的出现\citep{overviewllm, llmsurvey}。
+预训练的大语言模型通过大规模多样化的数据训练，展现了理解和生成类人文本的能力，
+使其适用于各种自然语言处理（Natural Language Processing, NLP）任务\citep{nlp}。
+进一步的监督微调（SFT）\citep{sft}使这些模型能够遵循自然语言指令，使它们
+成为各种应用的强大工具。大语言模型，如ChatGPT \citep{chatgpt}, LLama 
+\citep{llama}, 和Gemini \citep{gemini}, 因其丰富的领域特定知识，被工程
+师和研究人员用于自动化各个领域的工作流程。
+
 %^C^C Narrow down;
 %^C^C Jump to the point of automated debugging techniques as a whole.
 % \par Repairing bugs can be a time-consuming and daunting task
@@ -53,9 +62,35 @@
 % code language models have driven multiple fault localization 
 % and APR tools and  demonstrated high effectiveness in fixing 
 %  software defects and vulnerabilities
-% \citep{securemind, llm4testfreefl, 2xbettervulrepair} 
+% \citep{securemind, llm4testfreefl, vulmaster} 
 % across various APR benchmarks \citep{defects4j, swebench, cvedataset}.
 %^C^C Stop here. do not talk about limitations of LLM-driven APR.
+
+\par 修复软件中的错误对于经验丰富的专家来说也是一项耗时且艰巨
+的任务\citep{incorrectfix}。
+研究表明，调试活动通常占软件产品整体开发成本的约
+50\%\citep{reversibledebug, omnitabledebug}。
+许多因素导致了调试的成本，但最有影响力的因素是定位和修复错误所
+需的人工努力\citep{asrsurvey}。
+研究人员开发了一类方法，即\textbf{自动程序修复}
+\footnote{也称为自动软件修复}，其核
+心思想是尝试自动定位软件系统中的错误并生成实际的补丁来消除
+它们\citep{asrsurvey, asrbib, autobugfixsurvey}。
+在大语言模型时代之前，自动程序修复（APR）是通过遗传
+编程\citep{genprog}、随机搜索\citep{randomsearch}或应用修
+复模式/模板\citep{parsystem, tbar}来实现的。
+然而，对自动程序修复工具的实证研究表明，它们在帮助程序员理解错误方面存
+在困难\citep{autodebughelpful, debugbench, expectationonfl}，有些
+依赖于手工制作的模板，并且倾向于过拟合测
+试套件\citep{overfitinapr, invalidator}（
+即生成的补丁违反了正确性规范或保持了错误行为）。
+为了克服调试现实世界系统和生成合理补丁的困难，大语言模型被用于自动补
+丁合成\citep{fusellm4apr, autobugfixsurvey}。得益于它们的上下文
+感知能力、熟练的编码技能\citep{csllm, codex}和零/少量学习
+能力\citep{fewshotlearner}，代码语言模型已经驱动了多个错误定位和
+APR工具，并在各种APR基准测试\citep{defects4j, swebench, cvedataset}中
+展示了修复软件缺陷和漏洞的高效性
+\citep{securemind, llm4testfreefl, vulmaster}。
 
 %^C^C Narrow down;
 %^C^C What about automated repairment of memory bugs?
@@ -91,10 +126,32 @@
 % (i.e. the vulnerability type is known, and the vulnerable code is localized).
 % To our knowledge, this is the first work to try to automate
 % memory access bug localization at a fine-grained
-% granularity and a repository level, which is neglected by previous research on vulnerability repair
+% granularity and a repository level, which is neglected by 
+% previous research on vulnerability repair
 % but can potentially free developers from the
 % tedious workflow of reviewing bug reports, reproducing memory errors
 % and fix bugs.
+
+\par \texttt{C}和\texttt{C++}是流行的系统编程语言，在执行期间不
+检查内存访问，导致内存错误的出现。内存错误，如栈/堆
+溢出 (stack/heap overflow)、使用后
+释放 (use-after-free) 和双重释放 (double-free)，是软
+件漏洞的常见原因，并可能导致严重后果。此外，内存错误 通常认为
+难以定位；单个内存错误可能没有立即可见的程序异常行为（例如进程崩溃或中止）。
+因此，动态分析和跟踪工具\citep{asan, valgrind}已经被实现来在运行时检测
+内存错误，并在发生内存错误时使用有意义的错误消息中止程序执行。然而，这些
+工具需要在编译时进行插桩，并将程序执行速度降低3倍以上，限制了它
+们在调试或测试期间的应用。大语言模型已被用于修复\texttt{C}和\texttt{C++}程序
+中的内存错误和随之而来的CVE (Common Vulnerabilities and Exposures)。通过初
+步文献回顾，我们发现现有解决自动化漏洞修复的方法，包括
+VulRepair \citep{vulrepair}, VulAdvisor \citep{vuladvisor}, VulMaster \citep{vulmaster}, 
+和增强自动代码漏洞修复\citep{vulrepairusingllm}需要计算密集型任务来微调 (fine-tune) 骨干语言
+模型。Luo等人将控制流图信息集成到他们的提示中，使代码LM能够修复现实世界
+代码中的漏洞\citep{prompt4vulrepair}。这些工作为自动程序修复
+奠定了基础\textit{当错误的根本原因已知时}（即漏洞类型已知，并且易受攻击的
+代码已定位）。据我们所知，这是第一项尝试在细粒度粒度和仓库级别自动化内存访问错
+误定位的工作，这在先前关于漏洞修复的研究中被忽视，但可以潜在地使开发人员摆脱审
+查错误报告、重现内存错误和修复错误的繁琐工作流程。
 
 %^C^C Problem formulation (TO BE DETERMINED, NEED LITERATURE REVIEW).
 % \paragraph{Problem Formulation} Given a \texttt{C,C++} 
@@ -126,12 +183,29 @@
 % application, and have no access to the source code or
 % debugging tools.
 
+\paragraph{问题表述} 
+给定一个\texttt{C,C++}项目仓库及其错误报告，其中包含程序输入和
+程序\textbf{崩溃}时的堆栈跟踪\footnote{包括函数名称和行号}，我们能否
+利用编码LLM或智能系统在以下实验约束条件下自动化错误定位和解决？
+
+\begin{itemize}
+	\item 不使用地址消毒器 (Address Sanitizer\citep{asan}) 
+			或类似内存错误检测器\citep{valgrind}的任何其他信息
+			。由于这些消毒器的高运行时开销，它们不太可能包含在有缺陷应用程序的发布版本中。
+    \item 不微调现有模型或训练新的语言模型，即仅提
+			示发布的代码语言模型。这是为了克服现有漏洞修复工具的高计算成本。
+\end{itemize}
+
+我们相信这个场景对于当今的移动应用程序开发人员来说足够现实，
+他们花费大量时间审查来自最终用户的错误报告，这些用户通常安装
+了有缺陷应用程序的发布版本，并且无法访问源代码或调试工具。
+
 % We summarize our contributions as follows:
 % + We provide a Systematic Literature Review of articles related to LLM-based
 % automatic program repair (LLM4APR) since 2021; 
 \par 我们归纳我们的贡献如下:
 \begin{itemize}
-    \item 我们详尽检索了2021年, 有关"基于大语言模型的自动程序修复方法"(LLM4APR)
-    的文献,
+    \item 我们详尽检索了2021年, 有关"基于大语言模型的自动程序修复方法"
+    (LLM4APR)的文献,
     并提供了系统文献综述 (Systematic Literature Review, SLR);
 \end{itemize}
