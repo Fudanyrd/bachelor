@@ -245,3 +245,73 @@ location = {Echternach, Luxembourg},
 series = {ASE '23}
 }
 
+@inproceedings{androiddataset,
+author = {Braconaro, Elisa and Losiouk, Eleonora},
+title = {A Dataset for Evaluating LLMs Vulnerability Repair Performance in Android Applications: Data/Toolset paper},
+year = {2025},
+isbn = {9798400714764},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3714393.3726486},
+doi = {10.1145/3714393.3726486},
+abstract = {Automated Program Repair (APR) is a well-established research area that enhances software reliability and security by automatically fixing bugs, reducing manual effort, and accelerating debugging. Despite progress in publishing benchmarks to evaluate APR tools, datasets specifically targeting Android are lacking.To address this gap, we introduce a dataset of 272 real-world violations of Google's Android Security Best Practices, identified by statically analyzing 113 real-world Android apps. In addition to the faulty code, we manually crafted repairs based on Google's guidelines, covering 176 Java-based and 96 XML-based violations from Android Java classes and Manifest files, respectively. Additionally, we leveraged our novel dataset to evaluate Large Language Models (LLMs) as they are the latest promising APR tools. In particular, we evaluated GPT-4o, Gemini 1.5 Flash and Gemini in Android Studio and we found that GPT-4o outperforms Google's models, demonstrating higher accuracy and robustness across a range of violations types. Hence, with this dataset, we aim to provide valuable insights for advancing APR research and improving tools for Android security.},
+booktitle = {Proceedings of the Fifteenth ACM Conference on Data and Application Security and Privacy},
+pages = {353–358},
+numpages = {6},
+keywords = {android vulnerabilities, automated program repair, large language models},
+location = {Pittsburgh, PA, USA},
+series = {CODASPY '25}
+}
+
+@inproceedings{minecpp,
+author = {Avula, Sai Krishna and Mondal, Shouvick},
+title = {MineCPP: Mining Bug Fix Pairs and Their Structures},
+year = {2024},
+isbn = {9798400706585},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3663529.3663797},
+doi = {10.1145/3663529.3663797},
+abstract = {Modern software repositories serve as valuable sources of information for understanding and addressing software bugs. In this paper, we present MineCPP, a tool designed for large-scale bug fixing dataset generation, extending the capabilities of a recently proposed approach, namely Minecraft. MineCPP not only captures bug locations and types across multiple programming languages but introduces novel features like offset of a bug in a buggy source file, the sequence of syntactic constructs up to and including the location of the bug, etc. We discuss architectural and operational aspects of MineCPP, and show how it can be used to automatically mine GitHub repositories. A Graphical User Interface (GUI) further enhances user experience by providing interactive visualizations and quantitative analyses, facilitating fine-grained insights about the structure of bug fix pairs. MineCPP serves as a helpful solution for researchers, practitioners, and developers seeking comprehensive bug-fixing datasets and insights into coding practices. Tool demonstration is available at https://youtu.be/ln99irvbADE.},
+booktitle = {Companion Proceedings of the 32nd ACM International Conference on the Foundations of Software Engineering},
+pages = {552–556},
+numpages = {5},
+keywords = {Bug Fixes, Coding Effort, LLMs, Mining Software Repositories},
+location = {Porto de Galinhas, Brazil},
+series = {FSE 2024}
+}
+
+@inproceedings{precisebugcollector,
+author = {He, Ye and Chen, Zimin and Goues, Claire Le},
+title = {PreciseBugCollector: Extensible, Executable and Precise Bug-Fix Collection},
+year = {2024},
+isbn = {9798350329964},
+publisher = {IEEE Press},
+url = {https://doi.org/10.1109/ASE56229.2023.00163},
+doi = {10.1109/ASE56229.2023.00163},
+abstract = {Bug datasets are vital for enabling deep learning techniques to address software maintenance tasks related to bugs. However, existing bug datasets suffer from precise and scale limitations: they are either small-scale but precise with manual validation or large-scale but imprecise with simple commit message processing. In this paper, we introduce Precise-BugCollector, a precise, multi-language bug collection approach that overcomes these two limitations. PreciseBugCollector is based on two novel components: a) A bug tracker to map the codebase repositories with external bug repositories to trace bug type information, and b) A bug injector to generate project-specific bugs by injecting noise into the correct codebases and then executing them against their test suites to obtain test failure messages.We implement PreciseBugCollector against three sources: 1) A bug tracker that links to the national vulnerability data set (NVD) to collect general-wise vulnerabilities, 2) A bug tracker that links to OSS-Fuzz to collect general-wise bugs, and 3) A bug injector based on 16 injection rules to generate project-wise bugs. To date, PreciseBugCollector comprises 1 057 818 bugs extracted from 2 968 open-source projects. Of these, 12 602 bugs are sourced from bug repositories (NVD and OSS-Fuzz), while the remaining 1 045 216 project-specific bugs are generated by the bug injector. Considering the challenge objectives, we argue that a bug injection approach is highly valuable for the industrial setting, since project-specific bugs align with domain knowledge, share the same codebase, and adhere to the coding style employed in industrial projects.},
+booktitle = {Proceedings of the 38th IEEE/ACM International Conference on Automated Software Engineering},
+pages = {1899–1910},
+numpages = {12},
+keywords = {bug datasets, program repair, software testing and debugging},
+location = {Echternach, Luxembourg},
+series = {ASE '23}
+}
+
+@inproceedings{condefects,
+author = {Wu, Yonghao and Li, Zheng and Zhang, Jie M. and Liu, Yong},
+title = {ConDefects: A Complementary Dataset to Address the Data Leakage Concern for LLM-Based Fault Localization and Program Repair},
+year = {2024},
+isbn = {9798400706585},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3663529.3663815},
+doi = {10.1145/3663529.3663815},
+abstract = {With the growing interest on Large Language Models (LLMs) for fault localization and program repair, ensuring the integrity and generalizability of the LLM-based methods becomes paramount. The code in existing widely-adopted benchmarks for these tasks was written before the bloom of LLMs and may be included in the training data of existing popular LLMs, thereby suffering from the threat of data leakage, leading to misleadingly optimistic performance metrics.  To address this issue, we introduce ConDefects, a dataset developed as a complement to existing datasets, meticulously curated with real faults to eliminate such overlap. ConDefects contains 1,254 Java faulty programs and 1,625 Python faulty programs. All these programs are sourced from the online competition platform AtCoder and were produced between October 2021 and September 2023. We pair each fault with fault locations and the corresponding repaired code versions, making it tailored for fault localization and program repair related research. We also provide interfaces for selecting subsets based on different time windows and coding task difficulties. While inspired by LLM-based tasks, ConDefects can be adopted for benchmarking ALL types of fault localization and program repair methods. The dataset is publicly available, and a demo video can be found at https://www.youtube.com/watch?v=22j15Hj5ONk.},
+booktitle = {Companion Proceedings of the 32nd ACM International Conference on the Foundations of Software Engineering},
+pages = {642–646},
+numpages = {5},
+keywords = {Dataset, Fault Localization, Large Language Model, Program Repair},
+location = {Porto de Galinhas, Brazil},
+series = {FSE 2024}
+}
