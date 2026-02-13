@@ -192,6 +192,8 @@
 % Prompt Engineering \citep{promptsurvey}, as well as Agentic 
 % Corportation \citep{agents}, which are designed to enhance the performance of
 % LLMs on various NLP tasks.
+%^C Nevertheless, Li et al. discovered that main-stream LLMs have already
+%^C overfit existing APR datasets (e.g. Defects4j)\citep{generalizabilityapr}.
 
 \paragraph{RQ2:} 目前有哪些技术被应用于提升大语言模型\footnote{以及多智能体系统}
 在程序修复方面的性能？\textit{RQ2}探讨了不同优化技术在LLM自动程序修复背景下
@@ -222,6 +224,37 @@
 因此，这个研究问题旨在揭示常见的补丁验证技术，包括形式化
 验证和增强单元测试，以及它们的有效性。
 
+%^C Experimental. Depends on literature review result.
+%^C Me: it is likely that several papers have addressed this...
+% \paragraph{RQ4:} How do researchers measure the generalizability
+% of their program repair methodologies? The extensive use of 
+% code-related corpus in training Code Language Models (CLMs)
+% raises concerns about whether Large Language Models' achievements
+% in automated program repair stem from genuine code understanding,
+% or mere memorization of training data -- particularly the patch
+% to software bugs. Kong et al. proposed a general hypothesis
+% testing framework to study such memorization issue and
+% found a high likelihood of memorization of Defects4j\citep{defects4j}
+% -- a common benchmark for automated program repair 
+% \citep{demystifymemorization}. Li et al. evaluated 11 top-performing
+% LLMs on the Defects4j-Trans dataset (derived from transforming 
+% the Defects4j dataset) and concluded that the 
+% generalizability of LLMs on APR is limited \citep{generalizabilityapr}.
+% These evidences highlight the importance of evaluating
+% the generalizability of LLM-driven program repair techniques.
+
+\paragraph{RQ4:} 研究人员如何衡量其程序修复方法的泛化能力？
+在训练代码相关语料库的大语言模型中广泛使用，引发了人们对大语言模型在自
+动程序修复方面的成就是否源于真正的代码理解，还是仅仅是对训练数据的
+记忆——特别是对软件错误的补丁的记忆的担忧。
+Kong等人提出了一个通用假设测试框架来研究这种记忆问题，并发现D
+efects4j\citep{defects4j}——一个常见的自动程序修复基准--有很高
+的记忆可能性\citep{demystifymemorization}。
+Li等人在Defects4j-Trans数据集（源自Defects4j数据集的转换）上
+评估了11个表现最好的大语言模型，并得出结论认为大语言模型在自动程序修复方
+面的泛化能力有限\citep{generalizabilityapr}。
+这些证据显示评价LLM驱动的程序修复的泛化能力的重要性。
+
 % \subsection{RQ1: Dataset \& Benchmark}
 \subsection{RQ1: 数据集与基准测试}
 
@@ -230,3 +263,6 @@
 
 % \subsection{RQ3: Patch Verification}
 \subsection{RQ3: }
+
+% \subsection{RQ4: Generalizability Concerns}
+
