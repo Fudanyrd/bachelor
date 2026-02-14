@@ -16,6 +16,10 @@
 *.toc
 main.bib
 
+# draw.py
+figures/lang.tex
+*.d
+
 # images, documents
 *.pdf
 *.png

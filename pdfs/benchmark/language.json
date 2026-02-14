@@ -1,0 +1,19 @@
+{
+    "java": [
+        "androiddataset",
+        "bears",
+        "bugsdotjar",
+        "condefects"
+    ],
+    "python": [
+        "bugsinpy",
+        "condefects"
+    ],
+    "c c++": [
+        "bugscpp",
+        "codeflaws",
+        "cvedataset",
+        "cvefixes",
+        "defects4ds"
+    ]
+}

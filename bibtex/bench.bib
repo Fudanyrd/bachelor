@@ -92,10 +92,37 @@ One factor that contributed to the rapid growth of Java testing and debugging to
 In this project, inspired by Defects4J, we create another benchmark database and tool that contain 493 real bugs from 17 real-world Python programs. We hope our benchmark can help catalyze future work on testing and debugging tools that work on Python programs.},
   publisher = {Association for Computing Machinery},
   address = {New York, NY, USA},
+  url={https://dl.acm.org/doi/pdf/10.1145/3368089.3417943},
   pages = {1556–1560},
   numpages = {5}
 }
 
+@inproceedings{ferenc2018unified,
+  title={A public unified bug dataset for java},
+  author={Ferenc, Rudolf and T{\'o}th, Zolt{\'a}n and Lad{\'a}nyi, Gergely and Siket, Istv{\'a}n and Gyim{\'o}thy, Tibor},
+  booktitle={Proceedings of the 14th international conference on predictive models and data analytics in software engineering},
+  pages={12--21},
+  url={https://dl.acm.org/doi/pdf/10.1145/3273934.3273936},
+  year={2018}
+}
+
+@inproceedings{manysstubs4j,
+  title={How often do single-statement bugs occur? the manysstubs4j dataset},
+  author={Karampatsis, Rafael-Michael and Sutton, Charles},
+  booktitle={Proceedings of the 17th international conference on mining software repositories},
+  url={https://dl.acm.org/doi/pdf/10.1145/3379597.3387491},
+  pages={573--577},
+  year={2020}
+}
+
+@inproceedings{cvefixes,
+  title={CVEfixes: automated collection of vulnerabilities and their fixes from open-source software},
+  author={Bhandari, Guru and Naseer, Amara and Moonen, Leon},
+  booktitle={Proceedings of the 17th International Conference on Predictive Models and Data Analytics in Software Engineering},
+  url={https://dl.acm.org/doi/pdf/10.1145/3475960.3475985},
+  pages={30--39},
+  year={2021}
+}
 
 @inproceedings{repobugs,
   author={Chen, Yuxiao and Wu, Jingzheng and Ling, Xiang and Li, Changjiang and Rui, Zhiqing and Luo, Tianyue and Wu, Yanjun},
@@ -118,7 +145,7 @@ year = {2024},
 isbn = {9798400705878},
 publisher = {Association for Computing Machinery},
 address = {New York, NY, USA},
-url = {https://doi.org/10.1145/3643991.3644886},
+url = {https://dl.acm.org/doi/pdf/10.1145/3643991.3644886},
 doi = {10.1145/3643991.3644886},
 abstract = {We constructed a newly large-scale and comprehensive C/C++ vulnerability dataset named MegaVul by crawling the Common Vulnerabilities and Exposures (CVE) database and CVE-related open-source projects. Specifically, we collected all crawlable descriptive information of the vulnerabilities from the CVE database and extracted all vulnerability-related code changes from 28 Git-based websites. We adopt advanced tools to ensure the extracted code integrality and enrich the code with four different transformed representations. Totally, MegaVul contains 17,380 vulnerabilities collected from 992 open-source repositories spanning 169 different vulnerability types disclosed from January 2006 to October 2023. Thus, MegaVul can be used for a variety of software security-related tasks including detecting vulnerabilities and assessing vulnerability severity. All information is stored in the JSON format for easy usage. MegaVul is publicly available on GitHub and will be continuously updated. It can be easily extended to other programming languages.},
 booktitle = {Proceedings of the 21st International Conference on Mining Software Repositories},
@@ -182,18 +209,6 @@ journal = {Empirical Softw. Engg.},
 month = dec,
 numpages = {49},
 keywords = {Programming education, Program repair, Large language models, Software engineering}
-}
-
-@INPROCEEDINGS{precisebugcollector,
-  author={He, Ye and Chen, Zimin and Le Goues, Claire},
-  booktitle={2023 38th IEEE/ACM International Conference on Automated Software Engineering (ASE)}, 
-  title={PreciseBugCollector: Extensible, Executable and Precise Bug-Fix Collection: Solution for Challenge 8: Automating Precise Data Collection for Code Snippets with Bugs, Fixes, Locations, and Types}, 
-  year={2023},
-  volume={},
-  number={},
-  pages={1899-1910},
-  keywords={Industries;Deep learning;Training;Location awareness;Software maintenance;Computer bugs;Manuals;Bug datasets;Program repair;Software testing and debugging},
-  doi={10.1109/ASE56229.2023.00163}
 }
 
 @inproceedings{silva2024gitbug,
@@ -309,9 +324,88 @@ url = {https://doi.org/10.1145/3663529.3663815},
 doi = {10.1145/3663529.3663815},
 abstract = {With the growing interest on Large Language Models (LLMs) for fault localization and program repair, ensuring the integrity and generalizability of the LLM-based methods becomes paramount. The code in existing widely-adopted benchmarks for these tasks was written before the bloom of LLMs and may be included in the training data of existing popular LLMs, thereby suffering from the threat of data leakage, leading to misleadingly optimistic performance metrics.  To address this issue, we introduce ConDefects, a dataset developed as a complement to existing datasets, meticulously curated with real faults to eliminate such overlap. ConDefects contains 1,254 Java faulty programs and 1,625 Python faulty programs. All these programs are sourced from the online competition platform AtCoder and were produced between October 2021 and September 2023. We pair each fault with fault locations and the corresponding repaired code versions, making it tailored for fault localization and program repair related research. We also provide interfaces for selecting subsets based on different time windows and coding task difficulties. While inspired by LLM-based tasks, ConDefects can be adopted for benchmarking ALL types of fault localization and program repair methods. The dataset is publicly available, and a demo video can be found at https://www.youtube.com/watch?v=22j15Hj5ONk.},
 booktitle = {Companion Proceedings of the 32nd ACM International Conference on the Foundations of Software Engineering},
-pages = {642–646},
+pages = {642--646},
 numpages = {5},
 keywords = {Dataset, Fault Localization, Large Language Model, Program Repair},
 location = {Porto de Galinhas, Brazil},
 series = {FSE 2024}
+}
+
+@inproceedings{kong2019mining,
+  title={Mining android crash fixes in the absence of issue-and change-tracking systems},
+  author={Kong, Pingfan and Li, Li and Gao, Jun and Bissyand{\'e}, Tegawend{\'e} F and Klein, Jacques},
+  booktitle={Proceedings of the 28th ACM SIGSOFT International Symposium on Software Testing and Analysis},
+  pages={78--89},
+  url={https://dl.acm.org/doi/pdf/10.1145/3293882.3330572},
+  year={2019}
+}
+
+@article{jiang2022bugbuilder,
+  title={Bugbuilder: An automated approach to building bug repository},
+  author={Jiang, Yanjie and Liu, Hui and Luo, Xiaoqing and Zhu, Zhihao and Chi, Xiaye and Niu, Nan and Zhang, Yuxia and Hu, Yamin and Bian, Pan and Zhang, Lu},
+  journal={IEEE Transactions on Software Engineering},
+  volume={49},
+  number={4},
+  pages={1443--1463},
+  year={2022},
+  url={https://homepages.uc.edu/~niunn/papers/TSE23.pdf},
+  publisher={IEEE}
+}
+
+@inproceedings{tssb,
+  title={TSSB-3M: Mining single statement bugs at massive scale},
+  author={Richter, Cedric and Wehrheim, Heike},
+  booktitle={Proceedings of the 19th International Conference on Mining Software Repositories},
+  pages={418--422},
+  url={https://dl.acm.org/doi/pdf/10.1145/3524842.3528505},
+  year={2022}
+}
+
+@inproceedings{githubbugs,
+  title={The github recent bugs dataset for evaluating llm-based debugging applications},
+  author={Lee, Jae Yong and Kang, Sungmin and Yoon, Juyeon and Yoo, Shin},
+  booktitle={2024 IEEE Conference on Software Testing, Verification and Validation (ICST)},
+  pages={442--444},
+  url={https://arxiv.org/pdf/2310.13229},
+  year={2024},
+  organization={IEEE}
+}
+
+@inproceedings{bears,
+  title={Bears: An extensible java bug benchmark for automatic program repair studies},
+  author={Madeiral, Fernanda and Urli, Simon and Maia, Marcelo and Monperrus, Martin},
+  booktitle={2019 IEEE 26th international conference on software analysis, evolution and reengineering (SANER)},
+  pages={468--478},
+  year={2019},
+  url={https://arxiv.org/pdf/1901.06024},
+  organization={IEEE}
+}
+
+@inproceedings{bugsdotjar,
+  title={Bugs. jar: A large-scale, diverse dataset of real-world java bugs},
+  author={Saha, Ripon K and Lyu, Yingjun and Lam, Wing and Yoshida, Hiroaki and Prasad, Mukul R},
+  booktitle={Proceedings of the 15th international conference on mining software repositories},
+  pages={10--13},
+  url={https://dl.acm.org/doi/pdf/10.1145/3196398.3196473},
+  year={2018},
+}
+
+@article{swtbench,
+  title={SWT-bench: Testing and validating real-world bug-fixes with code agents},
+  author={M{\"u}ndler, Niels and M{\"u}ller, Mark and He, Jingxuan and Vechev, Martin},
+  journal={Advances in Neural Information Processing Systems},
+  volume={37},
+  pages={81857--81887},
+  url={https://proceedings.neurips.cc/paper_files/paper/2024/file/94f093b41fc2666376fb1f667fe282f3-Paper-Conference.pdf},
+  year={2024}
+}
+
+@inproceedings{fixeval,
+  title={Fixeval: Execution-based evaluation of program fixes for programming problems},
+  author={Haque, Md Mahim Anjum and Ahmad, Wasi Uddin and Lourentzou, Ismini and Brown, Chris},
+  booktitle={2023 IEEE/ACM International Workshop on Automated Program Repair (APR)},
+  pages={11--18},
+  year={2023},
+  url={https://arxiv.org/pdf/2206.07796},
+  organization={IEEE}
 }

@@ -247,8 +247,8 @@
 在训练代码相关语料库的大语言模型中广泛使用，引发了人们对大语言模型在自
 动程序修复方面的成就是否源于真正的代码理解，还是仅仅是对训练数据的
 记忆——特别是对软件错误的补丁的记忆的担忧。
-Kong等人提出了一个通用假设测试框架来研究这种记忆问题，并发现D
-efects4j\citep{defects4j}——一个常见的自动程序修复基准--有很高
+Kong等人提出了一个通用假设测试框架来研究这种记忆问题，并发现
+Defects4j\citep{defects4j}——一个常见的自动程序修复基准--有很高
 的记忆可能性\citep{demystifymemorization}。
 Li等人在Defects4j-Trans数据集（源自Defects4j数据集的转换）上
 评估了11个表现最好的大语言模型，并得出结论认为大语言模型在自动程序修复方
@@ -257,6 +257,42 @@ Li等人在Defects4j-Trans数据集（源自Defects4j数据集的转换）上
 
 % \subsection{RQ1: Dataset \& Benchmark}
 \subsection{RQ1: 数据集与基准测试}
+
+%^C WARN: this is not your note. Instead of simply stacking the collected
+%^C papers, try to organize your content
+% and make the review readable -- like Hou et al. did
+%^C \citep{llm4se2}.
+
+%^C Begins with a short introduction: importance of data; 
+%^C how (you plan) to analyze collected papers.
+%^C I'm interested in addressing:
+%^C * How are these datasets collected?
+%^C     sources, pre-processing steps, etc.
+%^C * What types of dataset have been used in APR research?
+%^C    by programming languages, or scenarios ("web app", "mobile app", "snippet", etc.)
+%^C 
+\par Data plays a crutial role in both training and fine-tuning 
+large language models \citep{sun2022importance}. Benchmarks,
+on the other hand, not only aid evaluations of proposed techniques,
+they also help researchers conduct empirical studies on bug
+characteristics \citep{androiddataset}.
+In this RQ, we analyze the datasets and benchmarks collected via
+snowballing search, 31 in total.
+
+\paragraph{How are APR datasets collected and pre-processed?}
+We first investigate the methods used to obtain the dataset.
+Following the definitions of Hou et al. \citep{llm4se2},
+we found that most program repair datasets are \textit{collected datasets}
+-- those that researchers compile directly from a multitude of sources,
+including code repositories, CVE lists, etc.
+
+\begin{figure}[ht]
+	\centering
+	\caption{Language Distribution of Collected Datasets.}
+	\label{fig:lang}
+
+	\input{figures/lang.tex}
+\end{figure}
 
 % \subsection{RQ2: LLM Enhancement Techniques for APR}
 \subsection{RQ2: }
