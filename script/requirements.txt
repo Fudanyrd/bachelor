@@ -1,0 +1,6 @@
+beautifulsoup4
+pyperclip
+selenium
+bibtexparser
+requests
+python-magic

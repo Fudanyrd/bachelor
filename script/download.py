@@ -1,0 +1,125 @@
+import requests
+import subprocess
+import os
+import time
+import sys
+from seleniumbase import Driver
+import bibtexparser
+
+# FIXME: not usage; Segmentation Fault
+# import magic
+
+def format_is_pdf(file: str) -> bool:
+    if not os.path.exists(file):
+        raise FileNotFoundError(f"File '{file}' does not exist.")
+    res = subprocess.run(['file', '--mime-type', file], capture_output=True, text=True)
+    if res.returncode != 0:
+        raise RuntimeError(f"Failed to run 'file' command: {res.stderr}")
+    ret ='application/pdf' in res.stdout.lower()
+    del res
+    return ret
+
+
+def download_others(url: str, ofile: str):
+    """
+    Assume url points to a pdf file, and can access being blocked.
+    """
+    res = requests.get(url)
+    with open(ofile, 'wb') as fobj:
+        fobj.write(res.content)
+    if not format_is_pdf(ofile):
+        raise ValueError(f"Downloaded file '{ofile}' is not a PDF.")
+
+
+def download_arxiv(url: str, ofile: str):
+    """
+    Download a paper from arXiv given its URL and save it to the specified output file.
+    """
+    url = url.replace('abs', 'pdf')
+    download_others(url, ofile)
+
+
+def download_acm_dl(url: str, ofile: str):
+    """
+    Download a paper from ACM Digital Library given its URL and save it to the specified output file.
+    """
+    driver = Driver(uc=True, headless=False)
+    driver.uc_open_with_reconnect(url, reconnect_time=10)
+
+    cookies = driver.get_cookies()
+    session = requests.Session()
+    for cookie in cookies:
+        session.cookies.set(cookie['name'], cookie['value'])
+    headers = {
+        "User-Agent": driver.execute_script("return navigator.userAgent;")
+    }
+
+    response = session.get(url, headers=headers)
+    response.raise_for_status()
+
+    with open(ofile, "wb") as f:
+        f.write(response.content)
+
+    if not format_is_pdf(ofile):
+        raise ValueError(f"Downloaded file '{ofile}' is not a PDF.")
+
+
+DEFAULT_DOWNLOADER = {
+    "dl.acm.org": download_acm_dl,
+    "arxiv.org": download_arxiv,
+}
+
+
+def domain_name(url: str) -> str:
+    try:
+        idx = url.index('://')
+        url = url[idx+3:]
+    except ValueError:
+        pass
+    try:
+        idx = url.index('/')
+        url = url[:idx]
+    except ValueError:
+        pass
+    return url
+
+
+def download_paper(url: str, ofile: str):
+    domain = domain_name(url)
+    downloader = DEFAULT_DOWNLOADER.get(domain, download_others)
+
+    try:
+        downloader(url, ofile)
+    except Exception as e:
+        print(f"Error downloading paper from {url}: {e}", file=sys.stderr)
+        # manually download the paper.
+        if os.path.exists(ofile):
+            os.unlink(ofile)
+
+
+def download_from_bib(bibfile: str, savedir: str | None) -> str:
+    """
+    Parse the bib file, and download the pdf file to {savedir}/{id}.pdf
+    """
+    lib = bibtexparser.load(open(bibfile, encoding='utf-8'))
+    for entry in lib.entries:
+        if 'url' not in entry:
+            print(f"Entry '{entry.get('ID', 'unknown')}' does not have a URL. Skipping.", file=sys.stderr)
+            continue
+        if 'ID' not in entry:
+            print(f"Entry with URL '{entry['url']}' does not have an ID. Using 'unknown' as filename.", file=sys.stderr)
+        url = entry['url']
+        obasename = f"{entry.get('ID', 'unknown')}.pdf"
+        ofile = os.path.join(savedir, obasename) if savedir else obasename
+        if not os.path.exists(ofile):
+            download_paper(url, ofile)
+            time.sleep(1)  # avoid being blocked by the server
+
+
+if __name__ == "__main__":
+    args = sys.argv
+    if len(args) != 2:
+        print("Usage: download.py <bibsource>")
+        sys.exit(1)
+
+    download_from_bib(args[1], None)
