@@ -24,3 +24,4 @@ clean:
 	-rm -f main.aux main.bbl main.blg main.log main.pdf
 	-rm -f main.fdb_latexmk main.fls
 	-rm -f images.d figures/lang.tex
+	-rm -f main.out main.lof main.thm main.toc

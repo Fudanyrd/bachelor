@@ -279,12 +279,76 @@ characteristics \citep{androiddataset}.
 In this RQ, we analyze the datasets and benchmarks collected via
 snowballing search, 31 in total.
 
-\paragraph{How are APR datasets collected and pre-processed?}
-We first investigate the methods used to obtain the dataset.
-Following the definitions of Hou et al. \citep{llm4se2},
+\paragraph{Where are APR datasets collected?}
+We first investigate the methods used to obtain the 
+repositories or programs where bugs are digged later.
+Following the terminologies of Hou et al. \citep{llm4se2},
 we found that most program repair datasets are \textit{collected datasets}
 -- those that researchers compile directly from a multitude of sources,
-including code repositories, CVE lists, etc.
+including 
+code repositories  (e.g. GitHub, F-Droid) \citep{androiddataset, bears, bugscpp, bugsdotjar}, 
+CVE lists \citep{cvedataset, cvefixes}, 
+and student solutions from programming courses or competitions
+\citep{codeflaws, condefects, defects4ds, fixeval}. The distribution
+of dataset sources is shown in Figure~\ref{fig:data} and Table~\ref{tab:data}.
+
+\begin{figure}[ht]
+	\centering
+	\caption{Source of Collected Datasets. \\
+	"Programming Problems" includes both solution to problems of both programming courses
+	and contests; "Composed" means the dataset is made by incorporating/modifying
+	multiple existing datasets. }
+	\label{fig:data}
+
+	\input{figures/data.tex}
+\end{figure}
+
+\begin{table}[ht]
+	\centering
+	\caption{Source of Collected Datasets. \\
+	"Programming Problems" includes both solution to problems of both programming courses
+	and contests; "Composed" means the dataset is made by incorporating/modifying
+	multiple existing datasets. }
+	\label{tab:data}
+
+	\input{figures/data-tab.tex}
+\end{table}
+
+\paragraph{How are APR datasets pre-processed?}
+After collecting these initial buggy code
+repositories or snippets, depending on the dataset, there are 
+one or more pre-processing (filtering) steps, including identifying bug-fixing
+patches, reproducing bugs or manual patch review. After this pre-processing
+step, the ground-truth bug location and correct patch is obtained,
+setting up the basis of fault localization evaluation and patch correctness
+verification.
+For instance, the widely 
+used Defects4j dataset \citep{defects4j} is collected by 
+first mining the commit history of 5 open-source Java projects, 
+then filtering commits that are likely to be bug-fixing patches 
+based on keywords in commit messages, reproducing bugs
+to filter out flaky tests, isolating bugs to filter out irrelevant commits
+(e.g. those adding new features), and finally obtain the source code diffs
+of reproducible bugs. In reviewing dataset/benchmark construction
+methodologies, we have found two cases which obviously deviate from 
+the common practice of pre-processing steps.
+The BEARS (BEnchmark for Automated Repair Studies)
+benchmark employ a novel strategy in finding potential buggy and patched
+commit of program -- by checking the Continuous Integration (CI)
+building states \citep{bears}. Elisa et al. utilized static analysis to find real-world
+violations of Google's Android Security Best Practices
+\footnote{\url{https://developer.android.com/privacy-and-security/security-tips}}, 
+which is more
+efficient than checking commit messages in mining software bugs, and then
+manually verify the exploitability of detected vulnerabilities and
+manually crafted patches \citep{androiddataset}.
+
+
+
+\paragraph{What are the programming language(s) of each dataset?}
+
+%^C possible future work: not enough support for newer languages,
+%^C Golang, Rust, Typescript, etc.
 
 \begin{figure}[ht]
 	\centering
@@ -293,6 +357,8 @@ including code repositories, CVE lists, etc.
 
 	\input{figures/lang.tex}
 \end{figure}
+
+\paragraph{Conclusions.}
 
 % \subsection{RQ2: LLM Enhancement Techniques for APR}
 \subsection{RQ2: }

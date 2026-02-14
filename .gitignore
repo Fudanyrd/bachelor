@@ -17,7 +17,7 @@
 main.bib
 
 # draw.py
-figures/lang.tex
+figures/*.tex
 *.d
 
 # images, documents
