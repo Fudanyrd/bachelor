@@ -1,20 +1,43 @@
 {
     "java": [
-        "androiddataset",
         "bears",
         "bugsdotjar",
         "condefects",
-        "ferenc2018unified"
+        "ferenc2018unified",
+        "fixeval",
+        "githubbugs",
+        "quixbugs",
+        "silva2024gitbug",
+        "vul4j",
+        "manysstubs4j"
     ],
     "python": [
         "bugsinpy",
-        "condefects"
+        "condefects",
+        "quixbugs",
+        "repobugs",
+        "swebench",
+        "swtbench",
+        "tssb",
+        "fixeval"
     ],
     "c c++": [
         "bugscpp",
         "codeflaws",
         "cvedataset",
         "cvefixes",
+        "manybugs",
+        "megavul",
         "defects4ds"
+    ],
+    "javascript": [
+        "jsbugs"
+    ],
+    "other": [
+        "xlcost"
+    ],
+    "android": [
+        "androiddataset",
+        "kong2019mining"
     ]
 }

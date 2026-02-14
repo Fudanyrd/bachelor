@@ -3,17 +3,31 @@
         "androiddataset",
         "bears",
         "bugscpp",
-        "bugsinpy"
+        "bugsinpy",
+        "githubbugs",
+        "jsbugs",
+        "kong2019mining",
+        "silva2024gitbug",
+        "repobugs",
+        "swebench",
+        "swtbench",
+        "xlcost",
+        "tssb",
+        "manysstubs4j"
     ],
     "programming problems": [
         "codeflaws",
         "condefects",
+        "manybugs",
+        "quixbugs",
         "defects4ds"
     ],
     "CVE lists": [
         "bugsdotjar",
         "cvedataset",
-        "cvefixes"
+        "cvefixes",
+        "vul4j",
+        "megavul"
     ],
     "Composed": [
         "ferenc2018unified"

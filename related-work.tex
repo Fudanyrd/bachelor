@@ -277,7 +277,9 @@ on the other hand, not only aid evaluations of proposed techniques,
 they also help researchers conduct empirical studies on bug
 characteristics \citep{androiddataset}.
 In this RQ, we analyze the datasets and benchmarks collected via
-snowballing search, 31 in total.
+snowballing search, 29 in total (including several bug builders
+that automatically mine buggy and patch commits from repositories
+\citep{fixeval, jiang2022bugbuilder, minecpp, precisebugcollector}).
 
 \paragraph{Where are APR datasets collected?}
 We first investigate the methods used to obtain the 
@@ -318,7 +320,8 @@ of dataset sources is shown in Figure~\ref{fig:data} and Table~\ref{tab:data}.
 After collecting these initial buggy code
 repositories or snippets, depending on the dataset, there are 
 one or more pre-processing (filtering) steps, including identifying bug-fixing
-patches, reproducing bugs or manual patch review. After this pre-processing
+patches \citep{jiang2022bugbuilder}, reproducing bugs or 
+manual patch review. After this pre-processing
 step, the ground-truth bug location and correct patch is obtained,
 setting up the basis of fault localization evaluation and patch correctness
 verification.
@@ -342,6 +345,10 @@ which is more
 efficient than checking commit messages in mining software bugs, and then
 manually verify the exploitability of detected vulnerabilities and
 manually crafted patches \citep{androiddataset}.
+It is worth noting that \textbf{single statement bugs} are one of the most
+important ingredient of evaluating modern automated bug detection and program
+fix techniques \citep{tssb}, several works provide insight into discovering
+single-statement bug fix \citep{manysstubs4j, tssb}.
 
 
 
