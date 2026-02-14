@@ -64,9 +64,33 @@ def download_acm_dl(url: str, ofile: str):
         raise ValueError(f"Downloaded file '{ofile}' is not a PDF.")
 
 
+def download_doi_org(url: str, ofile: str):
+    """
+    Download a paper from DOI.org given its URL and save it to the specified output file.
+    """
+    success = False
+    try:
+        download_others(url, ofile)
+        success = True
+    except Exception as e:
+        success = False
+    # translate the url:
+    # https://doi.org/10.1145/3395363.3397369
+    # -> https://dl.acm.org/doi/pdf/10.1145/3395363.3397369
+    if success:
+        return
+    toks = url.split('/')
+    if len(toks) < 2:
+        raise ValueError(f"Invalid DOI URL: {url}")
+    doi = toks[-2] + '/' + toks[-1]
+    acm_url = f"https://dl.acm.org/doi/pdf/{doi}"
+    download_acm_dl(acm_url, ofile)
+
+
 DEFAULT_DOWNLOADER = {
     "dl.acm.org": download_acm_dl,
     "arxiv.org": download_arxiv,
+    "doi.org": download_doi_org,
 }
 
 
@@ -118,8 +142,8 @@ def download_from_bib(bibfile: str, savedir: str | None) -> str:
 
 if __name__ == "__main__":
     args = sys.argv
-    if len(args) != 2:
-        print("Usage: download.py <bibsource>")
+    if len(args) != 3:
+        print("Usage: download.py <bibsource> <save dir>")
         sys.exit(1)
 
-    download_from_bib(args[1], None)
+    download_from_bib(args[1], args[2])
