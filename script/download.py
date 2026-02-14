@@ -55,11 +55,16 @@ def download_acm_dl(url: str, ofile: str):
     }
 
     response = session.get(url, headers=headers)
-    response.raise_for_status()
+    status_code = response.status_code
+
+    if status_code != 200:
+        driver.quit()
+        raise ValueError(f"Failed to download paper from {url}. HTTP status code: {status_code}")
 
     with open(ofile, "wb") as f:
         f.write(response.content)
 
+    driver.quit()
     if not format_is_pdf(ofile):
         raise ValueError(f"Downloaded file '{ofile}' is not a PDF.")
 
@@ -137,7 +142,7 @@ def download_from_bib(bibfile: str, savedir: str | None) -> str:
         ofile = os.path.join(savedir, obasename) if savedir else obasename
         if not os.path.exists(ofile):
             download_paper(url, ofile)
-            time.sleep(1)  # avoid being blocked by the server
+            time.sleep(10)  # avoid being blocked by the server
 
 
 if __name__ == "__main__":
