@@ -1,20 +1,25 @@
 """
 SYNOPSIS
-    scholar.py
+    scholar.py <snowball_result.jsonl>
 
 DESCRIPTION
     Automate searching on Google scholar, bypassing cloudflare.
+
+    It reads snowballing result, and try to search on Google Scholar
+    based on the collected article titles.
 
 BUGS
     It is too slow, taking 30 seconds to export a single bibtex citation.
 
 SEE ALSO
     scholar.js(file)
+    snowball.py(1)
 """
 import os
 import time
 import random
 import sys
+import json
 import bibtexparser
 from bibtexparser.bibdatabase import BibDatabase
 from seleniumbase import Driver
@@ -133,6 +138,57 @@ return export_bibtex_url(first_result);
     return bibtexparser.dumps(biblib)
 
 
+def download_bibtex_batch(records: list[dict], ofiles: None | dict):
+    """
+    Download all references from records.
+
+    :param: records: list of reference items, each contains key 'category', 'title'
+    :param: ofiles: open files for each type of reference.
+    """
+    all_categories = ['technical', 'survey', 'benchmark']
+
+    if ofiles is None:
+        ofiles = dict()
+    for k in all_categories:
+        if k not in ofiles:
+            ofiles[k] = k + '.bib'
+
+    ofobjs = dict()
+    for k in all_categories:
+        ofobjs[k] = open(ofiles[k], 'a', encoding='utf-8')
+
+    failed: list[str] = []
+    for record in records:
+        if 'category' not in record:
+            continue
+        if 'title' not in record:
+            continue
+        category = record['category']
+        if category not in all_categories:
+            continue
+        title = record['title']
+        try:
+            bibtex = export_bibtex(title)
+            if bibtex is not None:
+                ofobjs[category].write(bibtex + '\n')
+                ofobjs[category].flush()
+        except Exception as e:
+            print(f"Failed to download: {title}, error: {e}", file=sys.stderr)
+            failed.append(title)
+
+    if len(failed) > 0:
+        ofobj = ofobjs[all_categories[0]]
+        ofobj.write('@comment{\n')
+        for title in failed:
+            ofobj.write(f"Failed to download: {title}\n")
+        ofobj.write('}\n')
+        ofobj.flush()
+
+    # clean up ofiles
+    for k in all_categories:
+        ofobjs[k].close()
+
+
 def demo():
     # randomly select a title from ../bibtex/bench.bib
     random.seed(int(time.time()) % 97751)
@@ -163,4 +219,16 @@ def demo():
 
 
 if __name__ == "__main__":
-    demo()
+    args = sys.argv
+    if len(args) != 2:
+        print("Usage: scholar.py <snowball_result.jsonl>", file=sys.stderr)
+        exit(1)
+
+    records = []
+    with open(args[1], 'r', encoding='utf-8') as fobj:
+        for line in fobj:
+            if len(line) == 0:
+                continue
+            records.append(json.loads(line))
+
+    download_bibtex_batch(records, None)
