@@ -5,6 +5,9 @@ SYNOPSIS
 DESCRIPTION
     Automate searching on Google scholar, bypassing cloudflare.
 
+BUGS
+    It is too slow, taking 30 seconds to export a single bibtex citation.
+
 SEE ALSO
     scholar.js(file)
 """
@@ -16,21 +19,11 @@ import bibtexparser
 from bibtexparser.bibdatabase import BibDatabase
 from seleniumbase import Driver
 from bs4 import BeautifulSoup
+from urllib.parse import quote
 
 def transform_url(txt: str) -> str:
-    p = txt.replace('\n', '')
-    p = p.replace(':', '%3A')
-    p = p.replace('(', '%28')
-    p = p.replace(')', '%29')
-    p = p.replace('[', '%5B')
-    p = p.replace(']', '%5D')
-    p = p.replace(' ', '+')
-    p = p.replace('"', '%22')
-    p = p.replace('&', '%26')
-    p = p.replace('/', '%2F')
-    p = p.replace('?', '%3F')
-    p = p.replace('=', '%3D')
-    return p
+    return quote(txt)
+
 
 def _js_lib() -> str:
     with open("scholar.js", "r", encoding="utf-8") as f:
@@ -151,6 +144,8 @@ def demo():
             titles.append(entry['title'])
 
     query = random.choice(titles)
+    # query = "Ad-hoc transactions in web applications: the good, the bad, and the ugly"
+    print(quote(query), file=sys.stderr)
     del titles
     del biblib
 
