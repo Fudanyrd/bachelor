@@ -375,13 +375,24 @@ single-statement bug fix \citep{manysstubs4j, tssb}.
 
 
 \paragraph{What are the programming language(s) of each dataset?}
+We also classified the collected datasets/benchmarks by their programming
+languages. We found that most datasets consist of no more than
+two programming languages, 
+except one multi-lingual dataset (XLCoST \citep{xlcost}),
+The result of our classification is shown in Figure~\ref{fig:lang}.
+We concluded that today's main-stream language, \texttt{C}, \texttt{C++},
+\texttt{Python}, and \texttt{Java} accounts for more than 90\% of studied
+datasets, if we assume that the two Android-repository dataset 
+(\citep{kong2019mining, androiddataset}) is developed with \texttt{Java}.
+
 
 %^C possible future work: not enough support for newer languages,
 %^C Golang, Rust, Typescript, etc.
 
 \begin{figure}[ht]
 	\centering
-	\caption{Language Distribution of Collected Datasets.}
+	\caption{Language Distribution of Collected Datasets.\\
+	"Android" means applications developed for Android OS, which are mostly written in Java. }
 	\label{fig:lang}
 
 	\input{figures/lang.tex}
@@ -431,6 +442,10 @@ single-statement bug fix \citep{manysstubs4j, tssb}.
 \end{figure}
 
 \begin{itemize}
+	\item We categorized collected 25 bug datasets/benchmarks
+	by the data source, and found that most (56\% of) dataset are compiled
+	from public code repositories (as shown in Figure~\ref{fig:data}).
+
 	\item The most commonly adopted process of building a bug dataset 
 	is shown in Figure~\ref{fig:rq1}. It begins with project selection
 	-- selecting a set of representative code repositories or programs.
@@ -438,6 +453,11 @@ single-statement bug fix \citep{manysstubs4j, tssb}.
 	includes identifying bug locations, tests that expose the bugs, 
 	and correct patches. Finally, the processed data is compiled 
 	into bug datasets or benchmarks for further research and evaluation.
+
+	\item We found by auditing the distribution of programming language that
+	existing program fix datasets/benchmarks lack support for 
+	newer programming languages (e.g. \texttt{TypeScript}, \texttt{Golang}, \texttt{Rust}).
+	This may become possible directions of future bug datasets.
 \end{itemize}
 
 
